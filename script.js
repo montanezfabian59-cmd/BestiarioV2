@@ -1030,7 +1030,8 @@ function repartirCartas() {
 function reiniciarCasilleros() {
     document.querySelectorAll(".casillero").forEach(cas => {
         cas.classList.remove("brillando");
-        cas.textContent = cas.dataset.attr.toUpperCase();
+        cas.removeAttribute("data-personaje");
+        cas.innerHTML = `<span class="casillero-attr">${cas.dataset.attr.toUpperCase()}</span><span class="casillero-estado">Sin elegir</span>`;
     });
     const btnDuelo = document.getElementById("btn-iniciar-duelo");
     if(btnDuelo) {
@@ -1064,11 +1065,11 @@ function renderizarCartasBatalla(cartas, contenedorId, esRival) {
         if (!esRival) {
             htmlBotones = `
                 <div class="botones-atributos">
-                    <button onclick="asignarAtributo('inteligencia', ${index})">Int: ${intPuntos}</button>
-                    <button onclick="asignarAtributo('fuerza', ${index})">Fue: ${fuePuntos}</button>
-                    <button onclick="asignarAtributo('defensa', ${index})">Def: ${defPuntos}</button>
-                    <button onclick="asignarAtributo('velocidad', ${index})">Vel: ${velPuntos}</button>
-                    <button onclick="asignarAtributo('magia', ${index})">Mag: ${magPuntos}</button>
+                    <button data-attr="inteligencia" onclick="asignarAtributo('inteligencia', ${index})">Int: ${intPuntos}</button>
+                    <button data-attr="fuerza" onclick="asignarAtributo('fuerza', ${index})">Fue: ${fuePuntos}</button>
+                    <button data-attr="defensa" onclick="asignarAtributo('defensa', ${index})">Def: ${defPuntos}</button>
+                    <button data-attr="velocidad" onclick="asignarAtributo('velocidad', ${index})">Vel: ${velPuntos}</button>
+                    <button data-attr="magia" onclick="asignarAtributo('magia', ${index})">Mag: ${magPuntos}</button>
                 </div>
             `;
         } else {
@@ -1124,11 +1125,16 @@ function asignarAtributo(atributo, indexCarta) {
     const casillero = document.querySelector(`.casillero[data-attr="${atributo}"]`);
         if(casillero) {
             casillero.classList.add("brillando");
-            casillero.textContent = manoUsuario[indexCarta].nombre.substring(0,8);
+            casillero.dataset.personaje = manoUsuario[indexCarta].nombre;
+            casillero.innerHTML = `<span class="casillero-attr">${atributo.toUpperCase()}</span><span class="casillero-estado elegido">Elegido</span><span class="casillero-personaje">${manoUsuario[indexCarta].nombre}</span>`;
         }
         
-        if (manoUsuario.length >= 5) {
-            document.getElementById(`carta-usuario-${indexCarta}`).classList.add("asignada");
+        const cartaElegida = document.getElementById(`carta-usuario-${indexCarta}`);
+        if (cartaElegida) {
+            cartaElegida.classList.add("asignada", `asignada-${atributo}`);
+            cartaElegida.dataset.atributoAsignado = atributo;
+            const botonElegido = cartaElegida.querySelector(`button[data-attr="${atributo}"]`);
+            if (botonElegido) botonElegido.classList.add("seleccionado");
         }
 
         comprobarListos();
@@ -1514,49 +1520,83 @@ function registrarMemoriaIARival(attr, pUsuario, pRival, valUsuario, valRival, r
     });
 }
 
-function generarLeyendaMitica(pGanador, pPerdedor, attr, valGanador, valPerdedor, puntosRestantes, esSacrificio = false, salvador = null) {
-    const frasesAttr = {
-        fuerza: [
-            "desató un golpe devastador que retumbó en los confines del reino",
-            "demostró una fuerza titánica aplastando toda resistencia",
-            "hizo crujir la tierra con un embate colosal e imparable"
-        ],
-        inteligencia: [
-            "anticipó cada movimiento con una astucia táctica sublime",
-            "desplegó una estrategia milimétrica que tejió la ruina de su oponente",
-            "desmembró la mente enemiga con una lucidez suprema"
-        ],
-        magia: [
-            "canalizó fuerzas arcanas ancestrales desgarrando el velo de la realidad",
-            "desató una tormenta de energía mística infranqueable",
-            "invocó el poder del cosmos para envolver a su rival en perdición"
-        ],
-        velocidad: [
-            "se desplazó como un relámpago imperceptible en la penumbra",
-            "superó el viento con una agilidad mítica dejando sin respuesta a su rival",
-            "asestó un ataque fugaz e implacable antes de que pudiera reaccionar"
-        ],
-        defensa: [
-            "se erigió como un baluarte inquebrantable resistiendo el embate",
-            "forjó una barrera impenetrable que devolvió la desesperación",
-            "soportó la arremetida rival como una fortaleza legendaria"
-        ]
-    };
+function obtenerTarjetasActivasParaLeyenda(personaje, oponente, attr) {
+    if (typeof tarjetasGuardadas === 'undefined' || !personaje) return [];
+    const bandoPersonaje = manoUsuario.includes(personaje) ? 'usuario' : 'rival';
+    const miMano = bandoPersonaje === 'usuario' ? manoUsuario : manoRival;
+    const otraMano = bandoPersonaje === 'usuario' ? manoRival : manoUsuario;
 
-    const listaFrases = frasesAttr[attr.toLowerCase()] || ["se impuso con maestría legendaria en el combate"];
+    return tarjetasGuardadas.filter(tarjeta => {
+        if (tarjeta.propietarioId !== personaje.id) return false;
+        if (TIPOS_EQUIPAMIENTO_PERMANENTE.includes(tarjeta.tipo)) return true;
+        if (["Bendición", "Bendicion", "Maldición", "Maldicion", "Inmunidad"].includes(tarjeta.tipo)) return true;
+        if (["Aliado", "Rival", "Grupo", "Pareja", "Amor", "Odio"].includes(tarjeta.tipo)) {
+            const vincIds = Array.isArray(tarjeta.vinculadosIds) ? tarjeta.vinculadosIds : [tarjeta.vinculadosIds];
+            return vincIds.some(id => miMano.some(p => p.id === id) || otraMano.some(p => p.id === id));
+        }
+        return tarjeta.efectos?.some(e => !e.atributo || e.atributo.toLowerCase() === attr.toLowerCase() || e.atributo.toLowerCase() === "general");
+    });
+}
+
+function describirTarjetasLeyenda(personaje, oponente, attr) {
+    const tarjetas = obtenerTarjetasActivasParaLeyenda(personaje, oponente, attr);
+    if (tarjetas.length === 0) return "";
+
+    const fragmentos = tarjetas.slice(0, 2).map(tarjeta => {
+        if (TIPOS_EQUIPAMIENTO_PERMANENTE.includes(tarjeta.tipo)) {
+            const efecto = tarjeta.efectos?.find(e => e.atributo && e.atributo.toLowerCase() === attr.toLowerCase());
+            const bono = efecto ? ` (${efecto.modificacion > 0 ? "+" : ""}${efecto.modificacion} en ${attr})` : "";
+            return `la ${tarjeta.tipo.toLowerCase()} <strong>${tarjeta.nombre}</strong>${bono}`;
+        }
+        if (["Aliado", "Rival", "Grupo", "Pareja", "Amor", "Odio"].includes(tarjeta.tipo)) {
+            return `el vínculo de <strong>${tarjeta.tipo}</strong> sellado por <strong>${tarjeta.nombre}</strong>`;
+        }
+        return `el efecto de <strong>${tarjeta.nombre}</strong>`;
+    });
+
+    return ` Con ${fragmentos.join(" y ")}, su presencia alteró la balanza del duelo.`;
+}
+
+function nombreLeyenda(personaje, resultadoUsuario) {
+    const esUsuario = manoUsuario.includes(personaje);
+    if (!esUsuario) return `<em>${personaje.nombre}</em>`;
+    const clase = resultadoUsuario === "victoria" ? "nombre-mi-personaje victoria" : resultadoUsuario === "derrota" ? "nombre-mi-personaje derrota" : "nombre-mi-personaje empate";
+    return `<strong class="${clase}">${personaje.nombre}</strong>`;
+}
+
+function generarLeyendaMitica(pGanador, pPerdedor, attr, valGanador, valPerdedor, puntosRestantes, esSacrificio = false, salvador = null) {
+    const resultadoUsuario = manoUsuario.includes(pGanador) ? "victoria" : "derrota";
+    const frasesAttr = {
+        fuerza: ["quebró el pulso del campo con una acometida monumental", "alzó una presión colosal que hizo temblar cada estandarte", "convirtió cada impacto en un juramento de dominio"],
+        inteligencia: ["leyó el destino del combate antes de que naciera", "tejió una trampa mental con precisión de oráculo", "ordenó el caos como si cada sombra obedeciera su cálculo"],
+        magia: ["abrió un círculo arcano que rugió con memorias antiguas", "hizo cantar al éter hasta doblar la voluntad rival", "invocó una marea astral imposible de contener"],
+        velocidad: ["partió el aire como un presagio imposible de seguir", "apareció donde la mirada todavía no había llegado", "convirtió el instante en una sentencia fulminante"],
+        defensa: ["levantó una muralla viva contra la catástrofe", "resistió como un bastión tallado por eras olvidadas", "transformó cada golpe recibido en una promesa de permanencia"]
+    };
+    const listaFrases = frasesAttr[attr.toLowerCase()] || ["se impuso con maestría legendaria"];
     const accionMitica = listaFrases[Math.floor(Math.random() * listaFrases.length)];
+    const colorResultado = resultadoUsuario === "victoria" ? "victoria" : "derrota";
+    const extrasGanador = describirTarjetasLeyenda(pGanador, pPerdedor, attr);
+    const extrasPerdedor = describirTarjetasLeyenda(pPerdedor, pGanador, attr);
 
     if (esSacrificio && salvador) {
-        return `<div style="margin-bottom: 10px; padding: 10px; border-left: 4px solid #ff88ff; background: rgba(255, 136, 255, 0.08); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.5);">
-            <strong style="color: #ff88ff; text-transform: uppercase;">❖ ${attr} - Sacrificio de Amor</strong><br>
-            <em>${pPerdedor.nombre}</em> sucumbía ante el dominio de <em>${pGanador.nombre}</em> (${valGanador} vs ${valPerdedor}). Sin embargo, <strong style="color: #ffd700;">${salvador.nombre}</strong> interpuso su cuerpo en un acto heroico, sacrificando su vida y su existencia por su amor y absorber todo el daño. <em>${pPerdedor.nombre}</em> sigue en batalla. 
+        return `<div class="duelo-leyenda sacrificio ${colorResultado}">
+            <strong class="duelo-atributo ${colorResultado}">❖ ${attr.toUpperCase()} · Sacrificio de Amor</strong><br>
+            ${nombreLeyenda(pPerdedor, resultadoUsuario)} cedía ante ${nombreLeyenda(pGanador, resultadoUsuario)} (${valGanador} vs ${valPerdedor}). Entonces ${nombreLeyenda(salvador, resultadoUsuario)} cruzó el umbral del daño y tomó la caída en su lugar.${extrasGanador}${extrasPerdedor} ${nombreLeyenda(pPerdedor, resultadoUsuario)} permanece en batalla.
         </div>`;
     }
 
-    return `<div style="margin-bottom: 10px; padding: 10px; border-left: 4px solid #d4af37; background: rgba(212, 175, 55, 0.08); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.5);">
-        <strong style="color: #d4af37; text-transform: uppercase;">⚔ ${attr}</strong><br>
-        En un choque de <strong>${attr.toUpperCase()}</strong>, <em>${pGanador.nombre}</em> (${valGanador} pts) ${accionMitica} frente a <em>${pPerdedor.nombre}</em> (${valPerdedor} pts). 
-        La victoria fue para <strong style="color: #88ff88;">${pGanador.nombre}</strong> (conserva ${puntosRestantes} pts), expulsando a <strong>${pPerdedor.nombre}</strong> del campo de batalla.
+    return `<div class="duelo-leyenda ${colorResultado}">
+        <strong class="duelo-atributo ${colorResultado}">⚔ ${attr.toUpperCase()}</strong><br>
+        En la prueba de <strong class="duelo-atributo ${colorResultado}">${attr.toUpperCase()}</strong>, ${nombreLeyenda(pGanador, resultadoUsuario)} (${valGanador} pts) ${accionMitica} frente a ${nombreLeyenda(pPerdedor, resultadoUsuario)} (${valPerdedor} pts).${extrasGanador}${extrasPerdedor} La victoria dejó a ${nombreLeyenda(pGanador, resultadoUsuario)} con ${puntosRestantes} pts y expulsó a ${nombreLeyenda(pPerdedor, resultadoUsuario)} del campo.
+    </div>`;
+}
+
+function generarLeyendaEmpate(pUsuario, pRival, attr, valUsuario, valRival, ptsUsu, sonPareja) {
+    const vinculo = sonPareja ? "El vínculo de PAREJA apagó el filo del destino: ninguna voluntad aceptó dañar a la otra." : "Las fuerzas chocaron en equilibrio perfecto y el campo quedó suspendido entre dos juramentos iguales.";
+    return `<div class="duelo-leyenda empate">
+        <strong class="duelo-atributo empate">⚖ ${attr.toUpperCase()} · Empate</strong><br>
+        ${nombreLeyenda(pUsuario, "empate")} (${valUsuario} pts) y <em>${pRival.nombre}</em> (${valRival} pts) resistieron sin romper la balanza. ${vinculo} Ambos destinos reducen el atributo a la mitad (${ptsUsu} pts) y continúan en batalla.
     </div>`;
 }
 
@@ -1730,16 +1770,16 @@ if (salvadorIdx !== -1) {
                 
                 if (sonPareja) {
                     registrarMemoriaIARival(attr, pUsuario, pRival, valUsuario, valRival, "empate");
-                    historialRonda += `<p style="margin-bottom: 8px; color: #ff88ff;"><strong>${attr.toUpperCase()}:</strong> ${pUsuario.nombre} y ${pRival.nombre} se encontraron en duelo, pero al ser <strong>PAREJA</strong> se niegan a lastimarse mutuamente. ¡El duelo es un EMPATE automático! Ninguno se hace daño fatal y reducen su atributo a la mitad (${ptsUsu} puntos).</p>`;
+                    historialRonda += generarLeyendaEmpate(pUsuario, pRival, attr, valUsuario, valRival, ptsUsu, true);
                 } else {
                     registrarMemoriaIARival(attr, pUsuario, pRival, valUsuario, valRival, "empate");
-                    historialRonda += `<p style="margin-bottom: 8px;"><strong>${attr.toUpperCase()}:</strong> ${pUsuario.nombre} con ${valUsuario} puntos se enfrentó a ${pRival.nombre} con ${valRival} puntos. ¡Fue un EMPATE! Ambos personajes redujeron su atributo a la mitad (${ptsUsu} puntos) y continúan en la batalla.</p>`;
+                    historialRonda += generarLeyendaEmpate(pUsuario, pRival, attr, valUsuario, valRival, ptsUsu, false);
                 }
             }
         });
         
-        document.getElementById("sector-b2").innerHTML = `<div style="padding: 15px; overflow-y: auto; height: 100%; box-sizing: border-box; font-size: 13px; text-align: left; width: 100%;">
-            <h3 style="margin-bottom: 10px; color: #88c0d0; text-align: center;">Historial de Duelos</h3>
+        document.getElementById("sector-b2").innerHTML = `<div class="historial-duelos-contenido">
+            <h3 class="historial-duelos-titulo">Historial de Duelos</h3>
             ${historialRonda}
         </div>`;
         
