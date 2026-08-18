@@ -789,6 +789,9 @@ btnConfirmarPrincipales.addEventListener("click", () => {
 });
 let asignacionesUsuario = {};
 let asignacionesRival = {};
+let memoriaIARival = (typeof BestiarioAI !== "undefined") ? BestiarioAI.createMemory() : null;
+let ultimoDebugIARival = null;
+const AI_DEBUG = false;
 const ATRIBUTOS = ["fuerza", "inteligencia", "velocidad", "magia", "defensa"];
 function iniciarRondaBatalla() {
     mazoRestanteUsuario = [...personajesPrincipales];
@@ -816,6 +819,8 @@ function iniciarRondaBatalla() {
 
     manoUsuario = [];
     manoRival = [];
+    memoriaIARival = (typeof BestiarioAI !== "undefined") ? BestiarioAI.createMemory() : null;
+    ultimoDebugIARival = null;
     tarjetasEntornoUsadas = [];
     
     repartirCartas();
@@ -845,6 +850,8 @@ function iniciarRondaBatalla() {
 
     manoUsuario = [];
     manoRival = [];
+    memoriaIARival = (typeof BestiarioAI !== "undefined") ? BestiarioAI.createMemory() : null;
+    ultimoDebugIARival = null;
     
     repartirCartas();
 }const MAPA_EQUIPAMIENTO = {
@@ -1137,7 +1144,41 @@ function comprobarListos() {
     }
 }
 
-function asignarRivalAleatorio() {
+function crearContextoIARival() {
+    return {
+        ownCards: manoRival,
+        opponentCards: manoUsuario,
+        ownDeckRemaining: mazoRestanteRival,
+        opponentDeckRemaining: mazoRestanteUsuario,
+        specialCards: (typeof tarjetasGuardadas !== 'undefined') ? tarjetasGuardadas : [],
+        memory: memoriaIARival || (typeof BestiarioAI !== "undefined" ? BestiarioAI.createMemory() : null),
+        forcedAssignments: asignacionesRival,
+        getBaseValue: (attr, value) => (typeof getStatInfo === 'function' ? getStatInfo(attr, value).statValue : value),
+        calculateBattleValue: calcularPuntosBatallaConTarjeta
+    };
+}
+
+function asignarRivalEstrategico() {
+    if (typeof BestiarioAI === "undefined" || manoRival.length === 0) {
+        asignarRivalAleatorioCompatibilidad();
+        return;
+    }
+
+    const resultado = BestiarioAI.decideAssignments(crearContextoIARival(), {
+        difficulty: "maestro",
+        personality: "BOT_MAESTRO"
+    });
+
+    memoriaIARival = resultado.memory;
+    ultimoDebugIARival = resultado.debug;
+    asignacionesRival = resultado.assignments;
+
+    if (AI_DEBUG) {
+        console.debug("Bestiario AI decision", ultimoDebugIARival);
+    }
+}
+
+function asignarRivalAleatorioCompatibilidad() {
         let indicesDisponibles = manoRival.map((_, i) => i);
         
         if (manoRival.length >= 5) {
@@ -1160,6 +1201,10 @@ function asignarRivalAleatorio() {
             }
         });
     }
+
+function asignarRivalAleatorio() {
+    asignarRivalEstrategico();
+}
 function calcularModificadorEquipamiento(tarjeta, personaje, oponente, attr, totalActual = 0) {
     if (!tarjeta || !TIPOS_EQUIPAMIENTO_PERMANENTE.includes(tarjeta.tipo) || tarjeta.propietarioId !== personaje.id) {
         return 0;
@@ -1453,6 +1498,22 @@ if (tarjeta.tipo === "Amor") {
     return Math.max(0, Math.round(total));
     }
 
+function registrarMemoriaIARival(attr, pUsuario, pRival, valUsuario, valRival, resultadoRival) {
+    if (typeof BestiarioAI === "undefined") return;
+    memoriaIARival = BestiarioAI.updateMemory(memoriaIARival || BestiarioAI.createMemory(), {
+        round: (memoriaIARival && memoriaIARival.rounds ? memoriaIARival.rounds.length + 1 : 1),
+        playerCard: pUsuario ? (pUsuario.id || pUsuario.nombre) : null,
+        playerAttribute: attr,
+        ownCard: pRival ? (pRival.id || pRival.nombre) : null,
+        result: resultadoRival,
+        ownValue: valRival,
+        opponentValue: valUsuario,
+        margin: valRival - valUsuario,
+        survivingCards: { own: manoRival.length, opponent: manoUsuario.length },
+        eliminatedCards: []
+    });
+}
+
 function generarLeyendaMitica(pGanador, pPerdedor, attr, valGanador, valPerdedor, puntosRestantes, esSacrificio = false, salvador = null) {
     const frasesAttr = {
         fuerza: [
@@ -1623,10 +1684,12 @@ if (salvadorIdx !== -1) {
                     cartasAEliminarRival.push(salvadorIdx);
                     let salvador = manoRival[salvadorIdx];
                     historialRonda += generarLeyendaMitica(pUsuario, pRival, attr, valUsuario, valRival, puntosRestantes, true, salvador);
+                    registrarMemoriaIARival(attr, pUsuario, pRival, valUsuario, valRival, "derrota");
                 } else {
                     cartasAEliminarRival.push(idxRival);
                     perdedor = pRival.nombre;
                     historialRonda += generarLeyendaMitica(pUsuario, pRival, attr, valUsuario, valRival, puntosRestantes, false, null);
+                    registrarMemoriaIARival(attr, pUsuario, pRival, valUsuario, valRival, "derrota");
                 }
 
                 if (estadisticasBatallaPrincipales[pUsuario.id]) {
@@ -1650,10 +1713,12 @@ if (salvadorIdx !== -1) {
                     cartasAEliminarUsuario.push(salvadorIdx);
                     let salvador = manoUsuario[salvadorIdx];
                     historialRonda += generarLeyendaMitica(pRival, pUsuario, attr, valRival, valUsuario, puntosRestantes, true, salvador);
+                    registrarMemoriaIARival(attr, pUsuario, pRival, valUsuario, valRival, "victoria");
                 } else {
                     cartasAEliminarUsuario.push(idxUsuario);
                     perdedor = pUsuario.nombre;
                     historialRonda += generarLeyendaMitica(pRival, pUsuario, attr, valRival, valUsuario, puntosRestantes, false, null);
+                    registrarMemoriaIARival(attr, pUsuario, pRival, valUsuario, valRival, "victoria");
                 }
 
                 if (estadisticasBatallaPrincipales[pUsuario.id]) {
@@ -1664,8 +1729,10 @@ if (salvadorIdx !== -1) {
                 let ptsRiv = calcularYAsignarDaño(pRival, attr, valRival, Math.round(valRival / 2));
                 
                 if (sonPareja) {
+                    registrarMemoriaIARival(attr, pUsuario, pRival, valUsuario, valRival, "empate");
                     historialRonda += `<p style="margin-bottom: 8px; color: #ff88ff;"><strong>${attr.toUpperCase()}:</strong> ${pUsuario.nombre} y ${pRival.nombre} se encontraron en duelo, pero al ser <strong>PAREJA</strong> se niegan a lastimarse mutuamente. ¡El duelo es un EMPATE automático! Ninguno se hace daño fatal y reducen su atributo a la mitad (${ptsUsu} puntos).</p>`;
                 } else {
+                    registrarMemoriaIARival(attr, pUsuario, pRival, valUsuario, valRival, "empate");
                     historialRonda += `<p style="margin-bottom: 8px;"><strong>${attr.toUpperCase()}:</strong> ${pUsuario.nombre} con ${valUsuario} puntos se enfrentó a ${pRival.nombre} con ${valRival} puntos. ¡Fue un EMPATE! Ambos personajes redujeron su atributo a la mitad (${ptsUsu} puntos) y continúan en la batalla.</p>`;
                 }
             }
