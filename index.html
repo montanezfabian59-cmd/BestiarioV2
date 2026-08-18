@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestiario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<title>Bestiario</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Rajdhani:wght@500;700&display=swap');
+        
+        body {
+            background: radial-gradient(circle at center, #1a1a24 0%, #08080c 100%);
+            color: #e0e0e0;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(to bottom, #d4af37 0%, #aa7c11 50%, #f3e5ab 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 15px rgba(212, 175, 55, 0.3);
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .encabezado {
+            background: linear-gradient(180deg, #1f1f2e 0%, #11111a 100%);
+            border-bottom: 2px solid #aa7c11;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        button {
+            background: linear-gradient(180deg, #3d4554 0%, #262b36 100%);
+            border: 1px solid #5a667a;
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.6), inset 0 2px 2px rgba(255,255,255,0.2), inset 0 -2px 5px rgba(0,0,0,0.6);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-shadow: 1px 1px 2px black;
+        }
+
+        button:hover:not(:disabled) {
+            background: linear-gradient(180deg, #4d5768 0%, #323846 100%);
+            border-color: #88c0d0;
+            box-shadow: 0 0 15px rgba(136, 192, 208, 0.6), inset 0 2px 2px rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        button:active:not(:disabled) {
+            transform: translateY(1px);
+            box-shadow: inset 0 3px 8px rgba(0,0,0,0.9);
+        }
+
+        button.activo {
+            background: linear-gradient(180deg, #5c4412 0%, #3a2b0a 100%);
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5), inset 0 2px 2px rgba(255,255,255,0.2);
+        }
+
+        .modal-contenido, .modal-contenido-mazo, .modal-historia-tarjetas {
+            background: linear-gradient(135deg, #1c1c24 0%, #121217 100%);
+            border: 2px solid #3d4554;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.95), inset 0 0 30px rgba(136, 192, 208, 0.05);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .modal-contenido::after, .modal-contenido-mazo::after {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #d4af37, transparent, #88c0d0, transparent, #d4af37);
+            z-index: -1;
+            filter: blur(6px);
+            opacity: 0.6;
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .tarjeta-personaje, .tarjeta-mini, .item-mazo {
+            background: linear-gradient(180deg, #2a2a35 0%, #181820 100%);
+            border: 1px solid #4a4a5a;
+            border-radius: 8px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.8), inset 0 2px 2px rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        .tarjeta-personaje:hover, .item-mazo:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: #d4af37;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.9), 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        input[type="text"], input[type="number"], textarea, select {
+            background: #0b0b0f;
+            border: 1px solid #3a4252;
+            color: #88c0d0;
+            border-radius: 4px;
+            box-shadow: inset 0 3px 6px rgba(0,0,0,0.8);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #88c0d0;
+            box-shadow: inset 0 3px 6px rgba(0,0,0,0.8), 0 0 10px rgba(136, 192, 208, 0.4);
+        }
+
+        .casillero {
+            background: linear-gradient(145deg, #1f1f2a, #0f0f15);
+            border: 1px solid #333;
+            border-radius: 4px;
+            box-shadow: inset 2px 2px 5px rgba(255,255,255,0.03), inset -3px -3px 10px rgba(0,0,0,0.8);
+            transition: all 0.3s;
+        }
+        
+        .casillero.brillando {
+            background: linear-gradient(145deg, #3a2e12, #1a1508);
+            border-color: #d4af37;
+            color: #fff;
+            text-shadow: 0 0 5px #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6), inset 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .sector {
+            background: rgba(15, 15, 22, 0.85);
+            border: 1px solid #2a2a35;
+            box-shadow: inset 0 0 25px rgba(0,0,0,0.9);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0b0f;
+            border-left: 1px solid #2a2a35;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #4a4a5a, #2a2a35);
+            border: 1px solid #5a667a;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #88c0d0, #3d4554);
+        }
+    </style>
+</head>
+<body>
+    <div class="encabezado">
+        <h1>Bestiario</h1>
+        <div class="pestanas">
+            <button data-ventana="galeria">
+                Galería
+            </button>
+            <button data-ventana="mazo">
+                Mazo
+            </button>
+            <button data-ventana="batalla">
+                Batalla
+            </button>
+        </div>
+    </div>
+    <div class="contenidos">
+        <section id="galeria">
+            <h2>Galería</h2>
+            <div class="subpestanas">
+                <button id="btn-sub-personajes" class="activo" onclick="cambiarSubpestana('personajes')">Personajes</button>
+                <button id="btn-sub-tarjetas" onclick="cambiarSubpestana('tarjetas')">Tarjetas</button>
+            </div>
+            <div id="sub-personajes" class="sub-contenido activo">
+            </div>
+            <div id="sub-tarjetas" class="sub-contenido" style="display: none;">
+                <div id="grid-tarjetas-galeria" class="galeria-grid"></div>
+            </div>
+        </section>
+       <section id="mazo">
+            <h2>Mazo</h2>
+            <button id="btn-nuevo-mazo">Nuevo mazo</button>
+            <div id="lista-mazos">
+            </div>
+        </section>
+        <section id="batalla">
+            <h2>Batalla</h2>
+            <div id="pantalla-seleccion-mazo">
+                <h3>Selecciona un Mazo para la Batalla</h3>
+                <div id="lista-mazos-batalla" class="lista-mazos-grid"></div>
+            </div>
+            <div id="pantalla-seleccion-personajes" style="display: none;">
+                <h3>Selecciona 3 Personajes Principales (<span id="contador-principales">0</span>/3)</h3>
+                <div class="acciones-batalla">
+                    <button id="btn-aleatorio-batalla">Elegir Aleatoriamente</button>
+                    <button id="btn-confirmar-principales" disabled>Confirmar Selección</button>
+                    <button id="btn-volver-mazos">Cambiar Mazo</button>
+                </div>
+                <div id="grid-personajes-batalla" class="galeria-grid"></div>
+            </div>
+            <div id="pantalla-batalla-activa" style="display: none;">
+                <h3>Personajes Principales Seleccionados</h3>
+                <div id="contenedor-principales-seleccionados" class="galeria-grid"></div>
+            </div>
+        </section>
+    </div>
+    <div id="modal-personaje" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <div id="detalle-personaje"></div>
+        </div>
+    </div>
+
+    <div id="modal-detalle-tarjeta" class="modal">
+        <div class="modal-contenido modal-perfil-tarjeta">
+            <span class="cerrar-modal" onclick="cerrarModalTarjetaDetalle()">&times;</span>
+            <div id="contenido-detalle-tarjeta"></div>
+        </div>
+    </div>
+    <div id="modal-nuevo-mazo" class="modal">
+        <div class="modal-contenido-mazo">
+            <span class="cerrar-modal-mazo">&times;</span>
+            <h2>Constructor de Mazo</h2>
+            <div class="constructor-mazo-contenedor">
+                <div class="panel-izquierdo">
+                    <h3>Personajes Disponibles</h3>
+                    <div id="personajes-disponibles" class="galeria-grid"></div>
+                </div>
+                <div class="panel-derecho">
+                    <h3>Mazo Actual (<span id="contador-mazo">0</span>/50)</h3>
+                    <div id="personajes-mazo" class="galeria-grid mazo-grid"></div>
+                    <button id="btn-guardar-mazo">Guardar mazo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <div id="modal-evolucion" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarModalEvolucion()">&times;</span>
+            <div id="contenido-evolucion"></div>
+        </div>
+    </div>
+    <div id="modal-tarjeta-historia" class="modal">
+        <div class="modal-contenido modal-historia-tarjetas">
+            <span class="cerrar-modal" onclick="cerrarModalTarjetaHistoria()">&times;</span>
+            <h2>TARJETA DE MODIFICACIÓN DE HISTORIA</h2>
+            <div class="contenedor-grupos-tarjetas">
+                
+                <div class="grupo-tarjetas grupo-equipamiento">
+                    <h3>Equipamiento y Objetos</h3>
+                    <div class="grid-botones-tarjetas">
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioArma()">Arma</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioArmadura()">Armadura</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioReliquia()">Reliquia</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioMontura()">Montura</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioConocimiento()">Conocimiento</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioConsumible()">Consumible</button>                    
+                    </div>
+                </div>
+
+                <div class="grupo-tarjetas grupo-vinculos">
+                    <h3>Vínculos y Relaciones</h3>
+                    <div class="grid-botones-tarjetas">
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioVinculo('Aliado')">Aliado</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioVinculo('Rival')">Rival</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioVinculo('Pareja')">Pareja</button>
+                    </div>
+                </div>
+
+                <div class="grupo-tarjetas grupo-entorno">
+                    <h3>Entorno y Cobertura</h3>
+                    <div class="grid-botones-tarjetas">
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioTerritorio()">Territorio</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioCampoFuerza()">Campo De Fuerza</button>
+                    </div>
+                </div>
+
+                <div class="grupo-tarjetas grupo-estado">
+                    <h3>Estado y Condición</h3>
+                    <div class="grid-botones-tarjetas">
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioVinculo('Amor')">Amor</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioVinculo('Odio')">Odio</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioDebilidad()">Debilidad</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioMiedo()">Miedo</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioInmunidad()">Inmunidad</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioMutacion()">Mutación</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioEnfermedad()">Enfermedad</button>
+                    </div>
+                </div>
+
+                <div class="grupo-tarjetas grupo-destino">
+                    <h3>Destino y Estrategia</h3>
+                    <div class="grid-botones-tarjetas">
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioDestino('Venganza')">Venganza</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioDestino('Misión')">Misión</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioDestino('Deuda')">Deuda</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioMaldicion()">Maldición</button>
+                        <button class="btn-tarjeta-tipo" onclick="abrirFormularioBendicion()">Bendición</button>
+                    
+                    </div>
+                </div>
+
+                <div class="grupo-tarjetas grupo-esoterica">
+                    <h3>Esotéricas y de Poder</h3>
+                    <div class="grid-botones-tarjetas">
+                        <button class="btn-tarjeta-tipo">Plan</button>
+                        <button class="btn-tarjeta-tipo">Poder</button></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="modal-recompensas" class="modal-recompensas" style="display: none;">
+        <div class="modal-recompensas-contenido">
+            <h2>Tus personajes han ganado:</h2>
+            <div id="contenedor-recompensas-personajes" class="recompensas-grid"></div>
+            <button id="btn-cerrar-recompensas">Guardar y Finalizar</button>
+        </div>
+    </div>
+
+    <div id="alerta-juego" class="modal-alerta" style="display: none;">
+        <div class="contenido-alerta">
+            <p id="texto-alerta"></p>
+            <button onclick="cerrarAlerta()">Aceptar</button>
+        </div>
+    </div>
+    <div id="modal-batalla" class="modal-batalla">
+        <div class="columna-a">
+            <div id="sector-a1" class="sector a1">A1</div>
+            <div id="sector-a2" class="sector a2">
+                <div id="casilleros-atributos">
+                    <div class="casillero" data-attr="fuerza">Fuerza (A1)</div>
+                    <div class="casillero" data-attr="inteligencia">Int (A2)</div>
+                    <div class="casillero" data-attr="magia">Magia (A4)</div>
+                    <div class="casillero" data-attr="velocidad">Vel (A3)</div>
+                    <div class="casillero" data-attr="defensa">Def (A5)</div>
+                </div>
+                <button id="btn-iniciar-duelo" disabled>Iniciar Duelo</button>
+                <button id="btn-finalizar-batalla" style="display: none;">FINALIZAR BATALLA</button>
+            </div>            <div id="sector-a3" class="sector a3">A3</div>
+        </div>
+        <div class="columna-b">
+            <div id="sector-b1" class="sector b1">B1</div>
+            <div id="sector-b2" class="sector b2">Historial de Duelos</div>
+            <div id="sector-b3" class="sector b3">B3</div>
+        </div>
+    </div>
+    
+    <div id="modal-editor-historia" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarEditorHistoria()">&times;</span>
+            <h2>EDITAR HISTORIA DEL PERSONAJE</h2>
+            <div class="formulario-tarjeta">
+                <label>Historia actual:</label>
+                <textarea id="editor-historia-texto" rows="10" style="width: 100%; padding: 10px; background: #1a1a1a; color: white; border: 1px solid #4a3621; border-radius: 4px; resize: vertical; margin-bottom: 15px;"></textarea>
+                <button id="btn-guardar-historia" onclick="guardarHistoriaPersonaje()">GUARDAR HISTORIA Y REINICIAR DUELOS</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-formulario-equipamiento" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarFormularioEquipamiento()">&times;</span>
+            <h2 id="titulo-formulario-equipamiento">CREAR TARJETA</h2>
+            <div class="formulario-tarjeta">
+                <input type="hidden" id="tipo-tarjeta-equipamiento">
+                <label>Nombre:</label>
+                <input type="text" id="nombre-tarjeta-equipamiento" placeholder="Nombre de la tarjeta">
+                
+                <label>Descripción:</label>
+                <textarea id="descripcion-tarjeta-equipamiento" placeholder="Descripción de la tarjeta"></textarea>
+                
+                <label>Cantidad de puntos:</label>
+                <input type="number" id="puntos-tarjeta-equipamiento" value="0">
+                
+                <button id="btn-guardar-tarjeta" onclick="guardarTarjetaEquipamiento()">GUARDAR TARJETA</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-formulario-ben-mal" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarFormularioBenMal()">&times;</span>
+            <h2 id="titulo-formulario-ben-mal">CREAR TARJETA</h2>
+            <div class="formulario-tarjeta">
+                <input type="hidden" id="tipo-tarjeta-ben-mal">
+                <label>Nombre:</label>
+                <input type="text" id="nombre-tarjeta-ben-mal" placeholder="Nombre de la tarjeta">
+                
+                <label>Descripción:</label>
+                <textarea id="descripcion-tarjeta-ben-mal" placeholder="Descripción de la tarjeta"></textarea>
+                
+                <label>Puntos:</label>
+                <input type="number" id="puntos-tarjeta-ben-mal" value="0">
+                
+                <button id="btn-guardar-ben-mal" onclick="guardarTarjetaBenMal()">GUARDAR TARJETA</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-formulario-consumible" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarFormularioConsumible()">&times;</span>
+            <h2>CREAR TARJETA: CONSUMIBLE</h2>
+            <div class="formulario-tarjeta">
+                <label>Nombre:</label>
+                <input type="text" id="nombre-tarjeta-consumible" placeholder="Nombre de la tarjeta">
+                
+                <label>Descripción:</label>
+                <textarea id="descripcion-tarjeta-consumible" placeholder="Descripción de la tarjeta"></textarea>
+                
+                <label>Atributo:</label>
+                <select id="atributo-tarjeta-consumible">
+                    <option value="fuerza">Fuerza</option>
+                    <option value="inteligencia">Inteligencia</option>
+                    <option value="velocidad">Velocidad</option>
+                    <option value="magia">Magia</option>
+                    <option value="defensa">Defensa</option>
+                </select>
+
+                <label>Puntos a Modificar:</label>
+                <input type="number" id="valor-tarjeta-consumible" value="0">
+                
+                <label>Cantidad de Turnos:</label>
+                <select id="turnos-tarjeta-consumible">
+                    <option value="1">1 Turno</option>
+                    <option value="2">2 Turnos</option>
+                    <option value="3">3 Turnos</option>
+                </select>
+                
+                <button id="btn-guardar-consumible" onclick="guardarTarjetaConsumible()">GUARDAR TARJETA</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-formulario-vinculo" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarFormularioVinculo()">&times;</span>
+            <h2 id="titulo-formulario-vinculo">CREAR VÍNCULO</h2>
+            <div class="formulario-tarjeta">
+                <input type="hidden" id="tipo-tarjeta-vinculo">
+                <label>Seleccionar Personaje:</label>
+                <select id="personaje-tarjeta-vinculo"></select>
+                
+                <label>Descripción:</label>
+                <textarea id="descripcion-tarjeta-vinculo" placeholder="Descripción de la tarjeta"></textarea>
+                
+                <label>Cantidad de Puntos:</label>
+                <input type="number" id="puntos-tarjeta-vinculo" value="0">
+                
+                <button id="btn-guardar-vinculo" onclick="guardarTarjetaVinculo()">GUARDAR TARJETA</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-formulario-entorno" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarFormularioEntorno()">&times;</span>
+            <h2 id="titulo-formulario-entorno">CREAR ENTORNO</h2>
+            <div class="formulario-tarjeta">
+                <input type="hidden" id="tipo-tarjeta-entorno">
+                <label>Nombre:</label>
+                <input type="text" id="nombre-tarjeta-entorno" placeholder="Nombre de la tarjeta">
+                
+                <label>Descripción:</label>
+                <textarea id="descripcion-tarjeta-entorno" placeholder="Descripción de la tarjeta"></textarea>
+                
+                <label>Cantidad de Puntos:</label>
+                <input type="number" id="puntos-tarjeta-entorno" value="0">
+                
+                <label>Tipo Afectado:</label>
+                <select id="tipo-afectado-entorno">
+                    <option value="Luchador">Luchador</option>
+                    <option value="Bruja">Bruja</option>
+                    <option value="Demonio">Demonio</option>
+                    <option value="Sirena">Sirena</option>
+                    <option value="Agua">Agua</option>
+                    <option value="Angel">Angel</option>
+                    <option value="Luz">Luz</option>
+                    <option value="Fantasma">Fantasma</option>
+                    <option value="Vampiro">Vampiro</option>
+                    <option value="Titan">Titan</option>
+                    <option value="Tierra">Tierra</option>
+                    <option value="Druida">Druida</option>
+                    <option value="Humano">Humano</option>
+                    <option value="Hada">Hada</option>
+                    <option value="Hierba">Hierba</option>
+                    <option value="Fuego">Fuego</option>
+                    <option value="Hielo">Hielo</option>
+                    <option value="Oscuro">Oscuro</option>
+                    <option value="Bestia">Bestia</option>
+                    <option value="Insecto">Insecto</option>
+                    <option value="Licantropo">Licantropo</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Aire">Aire</option>
+                    <option value="Energia">Energia</option>
+                    <option value="Oscuridad">Oscuridad</option>
+                    <option value="Revenant">Revenant</option>
+                    <option value="Veneno">Veneno</option>
+                    <option value="Cyborg">Cyborg</option>
+                    <option value="Androide">Androide</option>
+                    <option value="Maquina">Maquina</option>
+                    <option value="Constructo">Constructo</option>
+                    <option value="Portador">Portador</option>
+                </select>
+                
+                <button id="btn-guardar-entorno" onclick="guardarTarjetaEntorno()">GUARDAR TARJETA</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-formulario-inmunidad" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarFormularioInmunidad()">&times;</span>
+            <h2>CREAR TARJETA: INMUNIDAD</h2>
+            <div class="formulario-tarjeta">
+                <label>Nombre:</label>
+                <input type="text" id="nombre-tarjeta-inmunidad" placeholder="Nombre de la tarjeta">
+                
+                <label>Descripción:</label>
+                <textarea id="descripcion-tarjeta-inmunidad" placeholder="Descripción de la tarjeta"></textarea>
+                
+                <button id="btn-guardar-inmunidad" onclick="guardarTarjetaInmunidad()">GUARDAR TARJETA</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-formulario-enfermedad" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarFormularioEnfermedad()">&times;</span>
+            <h2>CREAR TARJETA: ENFERMEDAD</h2>
+            <div class="formulario-tarjeta">
+                <label>Nombre:</label>
+                <input type="text" id="nombre-tarjeta-enfermedad" placeholder="Nombre de la tarjeta">
+                
+                <label>Descripción:</label>
+                <textarea id="descripcion-tarjeta-enfermedad" placeholder="Descripción de la tarjeta"></textarea>
+                
+                <label>Atributo Afectado:</label>
+                <select id="atributo-tarjeta-enfermedad">
+                    <option value="fuerza">Fuerza</option>
+                    <option value="inteligencia">Inteligencia</option>
+                    <option value="velocidad">Velocidad</option>
+                    <option value="magia">Magia</option>
+                    <option value="defensa">Defensa</option>
+                </select>
+                
+                <button id="btn-guardar-enfermedad" onclick="guardarTarjetaEnfermedad()">GUARDAR TARJETA</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-formulario-miedo-debilidad" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarFormularioMiedoDebilidad()">&times;</span>
+            <h2 id="titulo-formulario-miedo-debilidad">CREAR TARJETA</h2>
+            <div class="formulario-tarjeta">
+                <input type="hidden" id="tipo-tarjeta-miedo-debilidad">
+                
+                <label>Nombre:</label>
+                <input type="text" id="nombre-tarjeta-miedo-debilidad" placeholder="Nombre de la tarjeta">
+                
+                <label>Descripción:</label>
+                <textarea id="descripcion-tarjeta-miedo-debilidad" placeholder="Descripción de la tarjeta"></textarea>
+                
+                <label>Tipo de Personaje Afectado:</label>
+                <select id="tipo-personaje-miedo-debilidad" onchange="actualizarPersonajesPorTipoMiedoDebilidad()">
+                    <option value="">-- Seleccionar Tipo --</option>
+                    <option value="Luchador">Luchador</option>
+                    <option value="Bruja">Bruja</option>
+                    <option value="Demonio">Demonio</option>
+                    <option value="Sirena">Sirena</option>
+                    <option value="Agua">Agua</option>
+                    <option value="Angel">Angel</option>
+                    <option value="Luz">Luz</option>
+                    <option value="Fantasma">Fantasma</option>
+                    <option value="Vampiro">Vampiro</option>
+                    <option value="Titan">Titan</option>
+                    <option value="Tierra">Tierra</option>
+                    <option value="Druida">Druida</option>
+                    <option value="Humano">Humano</option>
+                    <option value="Hada">Hada</option>
+                    <option value="Hierba">Hierba</option>
+                    <option value="Fuego">Fuego</option>
+                    <option value="Hielo">Hielo</option>
+                    <option value="Oscuro">Oscuro</option>
+                    <option value="Bestia">Bestia</option>
+                    <option value="Insecto">Insecto</option>
+                    <option value="Licantropo">Licantropo</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Aire">Aire</option>
+                    <option value="Energia">Energia</option>
+                    <option value="Oscuridad">Oscuridad</option>
+                    <option value="Revenant">Revenant</option>
+                    <option value="Veneno">Veneno</option>
+                    <option value="Cyborg">Cyborg</option>
+                    <option value="Androide">Androide</option>
+                    <option value="Maquina">Maquina</option>
+                    <option value="Constructo">Constructo</option>
+                    <option value="Portador">Portador</option>
+                </select>
+                
+                <div id="contenedor-selector-personaje-miedo" style="display: none; margin-top: 10px;">
+                    <label>Personaje Específico (Opcional):</label>
+                    <select id="personaje-especifico-miedo-debilidad">
+                        <option value="">-- Todo el tipo --</option>
+                    </select>
+                </div>
+                
+                <button id="btn-guardar-miedo-debilidad" onclick="guardarTarjetaMiedoDebilidad()" style="margin-top: 15px;">GUARDAR TARJETA</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-formulario-destino" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarFormularioDestino()">&times;</span>
+            <h2 id="titulo-formulario-destino">CREAR TARJETA</h2>
+            <div class="formulario-tarjeta">
+                <input type="hidden" id="tipo-tarjeta-destino">
+                
+                <label>Nombre:</label>
+                <input type="text" id="nombre-tarjeta-destino" placeholder="Nombre de la tarjeta">
+                
+                <label>Descripción:</label>
+                <textarea id="descripcion-tarjeta-destino" placeholder="Descripción de la tarjeta"></textarea>
+                
+                <label>Tipo de Personaje Afectado:</label>
+                <select id="tipo-personaje-destino" onchange="actualizarPersonajesPorTipoDestino()">
+                    <option value="">-- Seleccionar Tipo --</option>
+                    <option value="Luchador">Luchador</option>
+                    <option value="Bruja">Bruja</option>
+                    <option value="Demonio">Demonio</option>
+                    <option value="Sirena">Sirena</option>
+                    <option value="Agua">Agua</option>
+                    <option value="Angel">Angel</option>
+                    <option value="Luz">Luz</option>
+                    <option value="Fantasma">Fantasma</option>
+                    <option value="Vampiro">Vampiro</option>
+                    <option value="Titan">Titan</option>
+                    <option value="Tierra">Tierra</option>
+                    <option value="Druida">Druida</option>
+                    <option value="Humano">Humano</option>
+                    <option value="Hada">Hada</option>
+                    <option value="Hierba">Hierba</option>
+                    <option value="Fuego">Fuego</option>
+                    <option value="Hielo">Hielo</option>
+                    <option value="Oscuro">Oscuro</option>
+                    <option value="Bestia">Bestia</option>
+                    <option value="Insecto">Insecto</option>
+                    <option value="Licantropo">Licantropo</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Aire">Aire</option>
+                    <option value="Energia">Energia</option>
+                    <option value="Oscuridad">Oscuridad</option>
+                    <option value="Revenant">Revenant</option>
+                    <option value="Veneno">Veneno</option>
+                    <option value="Cyborg">Cyborg</option>
+                    <option value="Androide">Androide</option>
+                    <option value="Maquina">Maquina</option>
+                    <option value="Constructo">Constructo</option>
+                    <option value="Portador">Portador</option>
+                </select>
+                
+                <div id="contenedor-selector-personaje-destino" style="display: none; margin-top: 10px;">
+                    <label>Personaje Específico (Opcional):</label>
+                    <select id="personaje-especifico-destino">
+                        <option value="">-- Todo el tipo --</option>
+                    </select>
+                </div>
+
+                <div id="contenedor-duelos-destino" style="margin-top: 10px;">
+                    <label>Cantidad de Duelos:</label>
+                    <select id="duelos-tarjeta-destino">
+                        <option value="1">1 Duelo</option>
+                        <option value="2">2 Duelos</option>
+                        <option value="3">3 Duelos</option>
+                        <option value="4">4 Duelos</option>
+                        <option value="5">5 Duelos</option>
+                    </select>
+                </div>
+                
+                <button id="btn-guardar-destino" onclick="guardarTarjetaDestino()" style="margin-top: 15px;">GUARDAR TARJETA</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-formulario-mutacion" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarFormularioMutacion()">&times;</span>
+            <h2>CREAR TARJETA: MUTACIÓN</h2>
+            <div class="formulario-tarjeta">
+                <label>Nombre:</label>
+                <input type="text" id="nombre-tarjeta-mutacion" placeholder="Nombre de la tarjeta">
+                
+                <label>Descripción:</label>
+                <textarea id="descripcion-tarjeta-mutacion" placeholder="Descripción de la tarjeta"></textarea>
+                
+                <div style="background: #1a1a1a; padding: 15px; border-radius: 4px; margin: 15px 0; text-align: center; border: 1px solid #4a3621;">
+                    <p style="color: #88ff88; margin: 0;">Puntos disponibles para reasignar: <span id="puntos-mutacion-disponibles" style="font-weight: bold; font-size: 24px; display: inline-block; min-width: 30px;">0</span></p>
+                </div>
+                
+                <div id="contenedor-atributos-mutacion" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px;">
+                    <!-- Se inyectarán los atributos por JS -->
+                </div>
+                
+                <button id="btn-guardar-mutacion" onclick="guardarTarjetaMutacion()">GUARDAR TARJETA</button>
+            </div>
+        </div>
+    </div>
+</html>

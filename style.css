@@ -1,0 +1,1206 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    padding: 30px;
+    background-color: #111111;
+    color: #eeeeee;
+    font-family: Arial, sans-serif;
+}
+.encabezado {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    border-bottom: 2px solid #333333;
+}
+.encabezado h1 {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+.pestanas {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+}
+.pestanas button {
+    background-color: #1c1c1c;
+    color: #999999;
+    border: 1px solid #333333;
+    border-bottom: none;
+    padding: 7px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    transition: 0.2s;
+}
+.pestanas button:hover {
+    background-color: #292929;
+    color: #ffffff;
+}
+.pestanas button:active {
+    background-color: #333333;
+    color: #ffffff;
+}
+.contenidos {
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-top: none;
+    min-height: 400px;
+    padding: 25px;
+}
+.contenidos section {
+    color: #dddddd;
+    display: none;
+}
+#galeria {
+    display: block;
+}
+.contenidos h2 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+.contenidos p {
+    color: #aaaaaa;
+    line-height: 1.6;
+}.subpestanas {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+.subpestanas button {
+    background: none;
+    border: none;
+    color: #88c0d0;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+.tarjeta-personaje {
+    background-color: #a8947a; 
+    border: 6px solid #4a3621; 
+    border-radius: 4px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    aspect-ratio: 2.5 / 3.6; 
+    transition: transform 0.2s;
+}
+#grid-tarjetas-galeria {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: 8px;
+}
+.tarjeta-mini {
+    padding: 4px;
+    border-width: 3px;
+    border-radius: 3px;
+}
+.tarjeta-mini .titulo-carta {
+    font-size: 9px;
+    padding: 2px;
+    border-width: 1px;
+}
+.titulo-carta {
+    background-color: #2b2b2b;
+    border: 2px solid #3a2611;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 2px;
+    margin: 0;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.imagen-personaje {
+    width: 100%;
+    flex-grow: 1;
+    object-fit: contain; 
+    background-color: #111111;
+    border: 2px solid #3a2611;
+}
+.contenedor-tipos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: -2px;
+}
+.modal .contenedor-tipos {
+    justify-content: flex-start;
+    margin-top: 0;
+}
+.etiqueta-tipo {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 4px;
+    color: #ffffff;
+    text-transform: uppercase;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+.tipo-bruja { background-color: #8b008b; }
+.tipo-luchador { background-color: #cd5c5c; }
+.tipo-demonio { background-color: #8b0000; }
+.tipo-sirena { background-color: #20b2aa; }
+.tipo-agua { background-color: #1e90ff; }
+.tipo-angel { background-color: #ffd700; color: #111; }
+.tipo-luz { background-color: #ffffe0; color: #111; }
+.tipo-fantasma { background-color: #778899; }
+.tipo-vampiro { background-color: #4b0082; }
+.tipo-titan { background-color: #a0522d; }
+.tipo-tierra { background-color: #8b4513; }
+.tipo-druida { background-color: #228b22; }
+.tipo-humano { background-color: #d2b48c; color: #111; }
+.tipo-hada { background-color: #ff69b4; }
+.tipo-hierba { background-color: #32cd32; }
+.tipo-fuego { background-color: #ff4500; }
+.tipo-hielo { background-color: #00ced1; }
+.tipo-oscuro { background-color: #2f4f4f; }
+.tipo-bestia { background-color: #b8860b; }
+.tipo-insecto { background-color: #556b2f; }
+.tipo-licantropo { background-color: #5c5c5c; }
+.tipo-dragon { background-color: #b22222; }
+.tipo-aire { background-color: #e0ffff; color: #111; }
+.tipo-energia { background-color: #ffff00; color: #111; }
+.tipo-oscuridad { background-color: #191970; }
+.tipo-revenant { background-color: #36454f; }
+.tipo-veneno { background-color: #9400d3; }
+.tipo-cyborg { background-color: #4682b4; }
+.tipo-androide { background-color: #008080; }
+.tipo-maquina { background-color: #708090; }
+.tipo-constructo { background-color: #cd853f; }
+.tipo-portador { background-color: #daa520; }
+.historia-personaje {
+    color: #cccccc;
+    font-size: 13px;
+    line-height: 1.4;
+    max-height: 120px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+.atributos-personaje {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    background-color: #1a1a1a;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+.atributos-personaje p {
+    color: #eeeeee;
+}
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.85); 
+}
+.modal-contenido {
+    background-color: #242424;
+    margin: 5% auto;
+    padding: 25px;
+    border: 2px solid #5a4023;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+.cerrar-modal {
+    color: #aaaaaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.cerrar-modal:hover {
+    color: #ffffff;
+}
+.detalle-modal {
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+}
+.detalle-imagen {
+    width: 45%;
+    max-height: 450px;
+    object-fit: contain;
+    border: 4px solid #4a3621;
+    background-color: #111;
+    border-radius: 4px;
+}
+.detalle-info {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.detalle-info h2 {
+    color: #fff;
+    margin: 0;
+    font-size: 28px;
+    border-bottom: 2px solid #4a3621;
+    padding-bottom: 10px;
+}
+
+.modal-historia {
+    max-height: 180px;
+    background-color: #1a1a1a;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #333;
+}
+#btn-nuevo-mazo, #btn-guardar-mazo {
+    background-color: #4a3621;
+    color: #ffffff;
+    border: 2px solid #5a4023;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+#btn-nuevo-mazo:hover, #btn-guardar-mazo:hover {
+    background-color: #5a4023;
+}
+#lista-mazos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+}
+.item-mazo {
+    background-color: #1a1a1a;
+    padding: 18px;
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+.tarjeta-mazo {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    cursor: pointer;
+    min-height: 260px;
+}
+.tarjeta-mazo:focus-visible {
+    outline: 3px solid #88c0d0;
+    outline-offset: 3px;
+}
+.mazo-cabecera {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+}
+.mazo-cabecera h3 {
+    margin-bottom: 6px;
+    text-align: left;
+}
+.mazo-cabecera p, .ayuda-mazo-batalla, .mazo-vacio, .mazo-aviso {
+    color: #aaaaaa;
+    font-size: 14px;
+}
+.mazo-contador {
+    background: rgba(136, 192, 208, 0.15);
+    border: 1px solid #88c0d0;
+    border-radius: 999px;
+    color: #88c0d0;
+    font-weight: bold;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+.mazo-vista-previa {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+.miniatura-mazo {
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid #3a4252;
+    border-radius: 6px;
+    overflow: hidden;
+    min-height: 118px;
+}
+.miniatura-mazo img {
+    width: 100%;
+    height: 82px;
+    object-fit: contain;
+    background: #0b0b0f;
+    display: block;
+}
+.miniatura-mazo span {
+    display: block;
+    font-size: 11px;
+    padding: 4px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mazo-detalle {
+    border-top: 1px solid #333;
+    padding-top: 12px;
+}
+.mazo-detalle h4 {
+    color: #88c0d0;
+    margin-bottom: 10px;
+}
+.mazo-cartas-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 8px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+.mazo-cartas-lista .tarjeta-personaje {
+    cursor: default;
+}
+.mazo-acciones {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+.mazo-acciones button {
+    flex: 1;
+    padding: 8px 12px;
+}
+.btn-eliminar-mazo {
+    border-color: #8b2f2f;
+    color: #ffd6d6;
+}
+.mazo-aviso {
+    color: #ffcc66;
+}
+.modal-contenido-mazo {
+    background-color: #242424;
+    margin: 2% auto;
+    padding: 25px;
+    border: 2px solid #5a4023;
+    border-radius: 8px;
+    width: 95%;
+    max-width: 1200px;
+    height: 85vh;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+.cerrar-modal-mazo {
+    color: #aaaaaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.cerrar-modal-mazo:hover {
+    color: #ffffff;
+}
+.constructor-mazo-contenedor {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    flex-grow: 1;
+    overflow: hidden;
+}
+.panel-izquierdo, .panel-derecho {
+    width: 50%;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.panel-izquierdo h3, .panel-derecho h3 {
+    margin-bottom: 15px;
+    color: #88c0d0;
+    text-align: center;
+}
+#personajes-disponibles, #personajes-mazo {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-content: start;
+    padding-right: 5px;
+    width: 100%;
+}
+.mazo-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-auto-rows: max-content;
+}
+.espacio-vacio {
+    background-color: #111;
+    border: 2px dashed #333;
+    border-radius: 4px;
+    aspect-ratio: 2.5 / 3.6;
+}
+.lista-mazos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.tarjeta-mazo-batalla {
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.tarjeta-mazo-batalla:hover {
+    background-color: #2a2a2a;
+    border-color: #88c0d0;
+}
+
+.acciones-batalla {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.acciones-batalla button {
+    background-color: #4a3621;
+    color: #ffffff;
+    border: 2px solid #5a4023;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.acciones-batalla button:hover:not(:disabled) {
+    background-color: #5a4023;
+}
+
+.acciones-batalla button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.tarjeta-seleccionada-principal {
+    border: 6px solid #88c0d0 !important;
+    box-shadow: 0 0 10px #88c0d0;
+    transform: scale(1.03);
+}
+.modal-batalla {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #111111;
+    z-index: 2000;
+}
+.columna-a {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.columna-b {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.sector {
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sector.a1 {
+    height: 40%;
+}
+.sector.a2 {
+    height: 20%;
+}
+.sector.a3 {
+    height: 40%;
+}
+.sector.b1 {
+    height: 10%;
+}
+.sector.b2 {
+    height: 80%;
+}
+.sector.b3 {
+    height: 10%;
+}
+.fila-cartas-batalla {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.carta-batalla {
+    background-color: #a8947a;
+    border: 4px solid #4a3621;
+    border-radius: 4px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: calc(100% / 7);
+    height: 95%;
+    transition: transform 0.2s, z-index 0.2s;
+    position: relative;
+    z-index: 1;
+}
+#sector-a1 .carta-batalla {
+    transform-origin: top center;
+}
+#sector-a3 .carta-batalla {
+    transform-origin: bottom center;
+}
+.carta-batalla:hover {
+    transform: scale(1.4);
+    z-index: 10;
+}
+.titulo-carta-batalla {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    font-size: 11px;
+    padding: 2px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    border-radius: 2px;
+}
+.imagen-carta-batalla {
+    width: 100%;
+    flex-grow: 1;
+    object-fit: cover;
+    background-color: #111111;
+    border: 1px solid #3a2611;
+    min-height: 0;
+}
+.botones-atributos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+}
+.botones-atributos button {
+    background-color: #1a1a1a;
+    color: #88c0d0;
+    border: 1px solid #333;
+    font-size: 9px;
+    padding: 2px 0;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 2px;
+}
+.botones-atributos button:last-child {
+    grid-column: span 2;
+}
+.botones-atributos button:hover {
+    background-color: #88c0d0;
+    color: #1a1a1a;
+}
+#sector-a2 {
+    flex-direction: column;
+    gap: 10px;
+}
+#casilleros-atributos {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+.casillero {
+    background-color: #1a1a1a;
+    border: 2px solid #333;
+    padding: 10px;
+    color: #88c0d0;
+    font-weight: bold;
+    border-radius: 4px;
+    text-align: center;
+    width: 80px;
+    font-size: 10px;
+    transition: all 0.3s;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.casillero.brillando {
+    border-color: #ffcc00;
+    box-shadow: 0 0 10px #ffcc00;
+    color: #ffcc00;
+}
+#btn-iniciar-duelo {
+    background-color: #4a3621;
+    color: #ffffff;
+    border: 2px solid #5a4023;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: none;
+}
+#btn-iniciar-duelo.listo {
+    display: block;
+}
+#btn-iniciar-duelo.brillando {
+        border-color: #ffcc00;
+        box-shadow: 0 0 20px #ffcc00;
+        background-color: #5a4023;
+    }
+    #btn-finalizar-batalla {
+        background-color: #8b0000;
+        color: #ffffff;
+        border: 2px solid #ff4444;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: 0.3s;
+        margin: 0 auto;
+    }
+    #btn-finalizar-batalla:hover {
+        background-color: #ff4444;
+    }
+    .carta-batalla.asignada {
+    opacity: 0.3;
+    pointer-events: none;
+}
+.modal-recompensas {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.85);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+}
+.modal-recompensas-contenido {
+    background-color: #242424;
+    padding: 30px;
+    border: 2px solid #5a4023;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    max-width: 600px;
+}
+.modal-recompensas-contenido h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+.recompensas-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+.recompensa-personaje {
+    background-color: #1a1a1a;
+    border: 2px solid #4a3621;
+    border-radius: 6px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+}
+.recompensa-imagen {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    background-color: #111;
+    border: 2px solid #3a2611;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.recompensa-nombre {
+    color: #eeeeee;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+.recompensa-puntos {
+    display: flex;
+    gap: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.puntos-positivos {
+    color: #88ff88;
+}
+.puntos-negativos {
+    color: #ff8888;
+}
+#btn-cerrar-recompensas {
+    background-color: #4a3621;
+    color: #ffffff;
+    border: 2px solid #5a4023;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+#btn-cerrar-recompensas:hover {
+    background-color: #5a4023;
+}
+.contenedor-atributos-evolucion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.fila-atributo-evol {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1a1a1a;
+    padding: 10px 15px;
+    border: 1px solid #333;
+    border-radius: 6px;
+}
+.nombre-attr-evol {
+    font-weight: bold;
+    color: #eeeeee;
+    width: 140px;
+    font-size: 14px;
+}
+.controles-attr-evol {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+.btn-evol-puntos {
+    background-color: #2b2b2b;
+    color: #88ff88;
+    border: 1px solid #88ff88;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-evol-puntos:hover:not(:disabled) {
+    background-color: #88ff88;
+    color: #111;
+}
+.btn-evol-puntos.neg {
+    color: #ff8888;
+    border-color: #ff8888;
+}
+.btn-evol-puntos.neg:hover:not(:disabled) {
+    background-color: #ff8888;
+    color: #111;
+}
+.btn-evol-puntos:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: #555;
+    color: #888;
+}
+#btn-guardar-evolucion {
+    background-color: #333333;
+    color: #777777;
+    border: 2px solid #444444;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    width: 100%;
+    cursor: not-allowed;
+    transition: 0.3s;
+}
+#btn-guardar-evolucion.activo {
+    background-color: #4a3621;
+    color: #ffffff;
+    border-color: #ffcc00;
+    box-shadow: 0 0 10px #ffcc00;
+    cursor: pointer;
+}
+#btn-guardar-evolucion.activo:hover {
+    background-color: #5a4023;
+}
+.texto-dorado {
+    color: #ffcc00 !important;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.4);
+}
+/* --- ESTILOS DEL MODAL DE TARJETAS DE HISTORIA --- */
+.modal-historia-tarjetas {
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.contenedor-grupos-tarjetas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.grupo-tarjetas {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #333;
+}
+
+.grupo-tarjetas h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+}
+
+.grid-botones-tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-tarjeta-tipo {
+    border: none;
+    color: #ffffff;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.btn-tarjeta-tipo:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+}
+
+/* Colores diferenciados por tipo de grupo */
+.grupo-equipamiento { border-color: #d97706; }
+.grupo-equipamiento h3 { color: #f59e0b; }
+.grupo-equipamiento .btn-tarjeta-tipo { background-color: #b45309; }
+
+.grupo-vinculos { border-color: #e11d48; }
+.grupo-vinculos h3 { color: #f43f5e; }
+.grupo-vinculos .btn-tarjeta-tipo { background-color: #be123c; }
+
+.grupo-entorno { border-color: #059669; }
+.grupo-entorno h3 { color: #10b981; }
+.grupo-entorno .btn-tarjeta-tipo { background-color: #047857; }
+
+.grupo-estado { border-color: #7c3aed; }
+.grupo-estado h3 { color: #a855f7; }
+.grupo-estado .btn-tarjeta-tipo { background-color: #6d28d9; }
+
+.grupo-destino { border-color: #0284c7; }
+.grupo-destino h3 { color: #38bdf8; }
+.grupo-destino .btn-tarjeta-tipo { background-color: #0369a1; }
+
+.grupo-esoterica { border-color: #ca8a04; }
+.grupo-esoterica h3 { color: #facc15; }
+.grupo-esoterica .btn-tarjeta-tipo { background-color: #a16207; }
+/* --- ESTILOS DEL FORMULARIO DE TARJETA --- */
+.formulario-tarjeta {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    color: #eeeeee;
+    text-align: left;
+}
+.formulario-tarjeta label {
+    font-weight: bold;
+    color: #88c0d0;
+}
+.formulario-tarjeta input[type="text"], 
+.formulario-tarjeta textarea,
+.formulario-tarjeta select,
+.formulario-tarjeta input[type="number"] {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: inherit;
+}
+.formulario-tarjeta textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+.seccion-efectos h3, .seccion-excepciones h3 {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #ffcc00;
+}
+.seccion-efectos button, .seccion-excepciones button {
+    background-color: #4a3621;
+    color: #ffffff;
+    border: 1px solid #5a4023;
+    padding: 2px 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.seccion-efectos button:hover, .seccion-excepciones button:hover {
+    background-color: #5a4023;
+}
+.item-efecto, .item-excepcion {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    background-color: #1a1a1a;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    align-items: center;
+}
+#btn-guardar-tarjeta {
+    background-color: #4a3621;
+    color: #ffffff;
+    border: 2px solid #5a4023;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: 0.2s;
+}
+#btn-guardar-tarjeta:hover {
+    background-color: #5a4023;
+    border-color: #ffcc00;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+}
+.form-scroll {
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+/* --- Mejoras del perfil de personaje --- */
+#modal-personaje {
+    padding: 24px;
+    overflow: hidden;
+}
+
+#modal-personaje .modal-contenido {
+    width: min(960px, 94vw);
+    height: min(760px, 92vh);
+    margin: 4vh auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#detalle-personaje {
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.detalle-modal {
+    min-height: 0;
+}
+
+.detalle-visual {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 260px;
+}
+
+.detalle-visual .detalle-imagen {
+    width: 100%;
+}
+
+.tipo-personaje-modal .contenedor-tipos {
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.tipo-personaje-modal .etiqueta-tipo {
+    padding: 7px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    box-shadow: 0 0 14px currentColor, inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    font-size: 13px;
+    letter-spacing: 1.4px;
+}
+
+.atributos-personaje {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    border: 1px solid #2f3440;
+}
+
+.atributo-medidor {
+    padding: 9px 10px;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--color-atributo) 18%, #121217), #171720);
+    border: 1px solid color-mix(in srgb, var(--color-atributo) 58%, #20202a);
+    border-radius: 8px;
+    box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.35), 0 0 12px color-mix(in srgb, var(--color-atributo) 20%, transparent);
+}
+
+.atributo-medidor-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.atributo-medidor-nombre,
+.atributo-medidor-valor {
+    color: var(--color-atributo);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px color-mix(in srgb, var(--color-atributo) 65%, transparent);
+}
+
+.atributo-medidor-valor {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.atributo-barra {
+    height: 12px;
+    overflow: hidden;
+    background: #08080c;
+    border: 1px solid color-mix(in srgb, var(--color-atributo) 65%, #111);
+    border-radius: 999px;
+}
+
+.atributo-barra span {
+    display: block;
+    height: 100%;
+    min-width: 4px;
+    background: linear-gradient(90deg, var(--color-atributo), #ffffff);
+    border-radius: inherit;
+    box-shadow: 0 0 12px var(--color-atributo);
+}
+
+.atributo-medidor-medida {
+    display: block;
+    margin-top: 4px;
+    color: #cfd7e6;
+    font-size: 11px;
+    text-align: right;
+}
+
+.acciones-personaje {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.boton-alerta-personaje {
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    animation: pulso-alerta-personaje 1.8s ease-in-out infinite;
+}
+
+.boton-alerta-tarjeta {
+    background: linear-gradient(135deg, #d9f99d, #22d3ee 45%, #0f766e);
+    border: 2px solid #cffafe;
+    color: #061014;
+    text-shadow: none;
+}
+
+.boton-alerta-evolucion {
+    background: linear-gradient(135deg, #fde68a, #f59e0b 48%, #7c2d12);
+    border: 2px solid #fef3c7;
+    color: #171000;
+    text-shadow: none;
+}
+
+.resumen-personaje {
+    margin-top: 15px;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+}
+
+.duelos-librados {
+    color: #88c0d0;
+    font-weight: bold;
+}
+
+@keyframes pulso-alerta-personaje {
+    0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 14px rgba(255, 255, 255, 0.25); }
+    50% { transform: translateY(-2px) scale(1.03); box-shadow: 0 0 28px rgba(255, 255, 255, 0.48); }
+}
+
+@media (max-width: 760px) {
+    #modal-personaje .modal-contenido {
+        height: 94vh;
+        margin: 2vh auto;
+    }
+
+    .detalle-modal {
+        flex-direction: column;
+    }
+
+    .detalle-visual,
+    .detalle-info {
+        width: 100%;
+    }
+
+    .detalle-imagen {
+        max-height: 320px;
+    }
+}

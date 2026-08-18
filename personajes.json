@@ -1,0 +1,777 @@
+[
+    {
+        "id": "xenia",
+        "nombre": "Xenia",
+        "tipo": "Bruja",
+        "historia": "Desde el instante de su nacimiento, Xenia fue marcadas por los Dioses con la maldición de la Belleza Absoluta, una gracia que rápidamente se reveló como la más cruel de las trampas. Cualquier hombre que pudiera contemplar su rostro quedaba cautivado y su libre albedrío se erosionaba en cuestión de días. Su devoción se convertía en una obsesión enferma que terminaba consumiendo su alma por completo, reduciéndolo a un peón vacío, guiado únicamente por el impulso primitivo de complacerla.\n\nAl ser una criatura inmortal, Xenia presenció durante siglos la marcha implacable del tiempo. Vio pasar generaciones de hombres que se marchitaban, envejecían y morían a sus pies, consumidos por la llama que ella misma encendía sin querer. La inmortalidad se volvió un castigo, hasta que conoció a Jay. Él fue el único capaz de despertar interés en Xenia. Cuando el aliento de la muerte se lo llevó naturalmente, la cordura de Xenia se quebró para siempre.\n\nIncapaz de aceptar la pérdida, se adentró en las artes oscuras y desenterró un ritual prohibido de la Nigromancia Ancestral. Cuando la magia negra estalló, resucitó a Jay, pero el precio fue devastador: el cuerpo de Jay volvió como una cáscara sin alma ni recuerdos, un cascarón errante movido únicamente por el eco del amor que sintió en vida.\n\nPeor aún, el hechizo buscó la firma mágica de la maldición de Xenia y resonó en cada tumba del mundo. En cuestión de horas, miles de hombres que alguna vez murieron obsesionados con ella rompieron la tierra.\n\nHoy, Xenia vaga por los reinos en ruinas: a su lado camina Jay, atado por una cadena de luz creada por Xenia, escoltada por un ejército imbatible de ex-hombres cadavéricos que no recuerdan sus propios nombres, pero que destruirían imperios y morirían solo por una mirada de su ama.",
+        "atributos": {
+            "inteligencia": 92,
+            "fuerza": 35,
+            "velocidad": 55,
+            "magia": 95,
+            "defensa": 35
+        },
+        "imagen": "personajes/xenia.jpg",
+        "puntosPositivos": 50,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "zhautung",
+        "nombre": "Zhau Tung",
+        "tipo": "Luchador",
+        "historia": "Zhau Tung nació bajo el presagio de una luna de ceniza en las tierras altas de Shu, una región marcada por la niebla y los antiguos ritos. Desde niño poseía una extraña y peligrosa afición por el arte prohibido del Sumie-Jutsu, la capacidad mística de infundir esencia vital en la tinta de pino quemado para otorgarle una forma física temporal. Sin embargo, no fue hasta el día en que su clan fue diezmado hasta las cenizas por señores de la guerra sin escrúpulos, que Zhau tomó una aguja de hueso y, durante siete días de agonía, trance y cánticos olvidados, talló en su propia piel los espíritus de las bestias y guerreros legendarios que una vez protegieron a sus ancestros. Cada trazo dolía como fuego líquido, pero al finalizar, su cuerpo no solo albergaba marcas de guerra, sino la esencia de entidades ancestrales esperando su mandato.\n\nDe la prisión de su piel se materializan sus aliados, criaturas de penumbra pura. El primero en emerger suele ser Kuro-Tsuki (\"Luna Negra\"), el voraz hombre lobo que encarna la furia ciega de un espíritu de la montaña atrapado en una forma híbrida por una maldición de sangre, condenado a despedazar filas enemigas hasta que su propia sed de sangre se sacie. A su lado, con un rugido que hace temblar la tierra, se manifiesta Ryu-Sei (\"Estrella Dragón\"), el león alado que, según cuentan los ancianos de Shu, fue un guardián celestial degradado a la tierra por su soberbia, y que ahora busca redención sirviendo a la voluntad de Zhau, envolviéndolo todo con sus alas de humo denso.\n\nEntre los guerreros de sombra destaca Tetsu-San (\"Montaña de Hierro\"), la imponente figura de un antiguo samurái cuya disciplina y honor trascendieron la muerte. Se dice que fue un general legendario que prefirió sellar su alma en su armadura antes que rendirse, y ahora su espíritu de tinta pelea con una calma gélida que contrasta con la ferocidad del resto de la manada. Más aterrador aún es Yama-Uba (\"Vieja de la Montaña\"), un demonio con espadas gemelas y brazos extra, nacido del dolor de una madre que perdió a sus hijos en la guerra; su leyenda dice que cada corte que inflige no solo hiere el cuerpo, sino que consume los recuerdos de felicidad de su víctima. Pero la entidad más colosal, la que domina la escena y rige el flujo de la tinta viva, es Hei-Long (\"Dragón Negro\"), el Dragón Colosal que duerme a lo largo de toda la columna vertebral de Zhau. Hei-Long no es una simple invocación; es una manifestación directa del Sumie-Jutsu en su máximo poder, un antiguo dios río que fue corrompido por la oscuridad y que Zhau logró domar al precio de su propia humanidad. Cuando Hei-Long emerge por completo, su cuerpo serpenteante parece oscurecer el mismo cielo, y la batalla se sentencia no por la fuerza, sino por la abrumadora presencia de un ser que debería ser solo mito.",
+        "atributos": {
+            "inteligencia": 56,
+            "fuerza": 60,
+            "velocidad": 66,
+            "magia": 84,
+            "defensa": 40
+        },
+        "imagen": "personajes/zhautung.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "liren-ken",
+        "nombre": "Liren-Ken",
+        "tipo": "Demonio",
+        "historia": "Durante más de siete años, la pequeña villa de Lucua fue azotada por una sequía inclemente que redujo sus ríos a lechos de polvo y sus cultivos a cenizas. La desesperación comenzó a devorar la cordura de los lugareños, transformando la empatía en paranoia y supervivencia despiadada. Fue entonces cuando Varok, el anciano líder del consejo del pueblo, convenció a la comunidad de realizar una blasfemia impensable: un pacto de sangre con las fuerzas oscuras para invocar a una entidad infernal. Sin embargo, el ritual exigía la ofrenda más valiosa y pura. Llevados por un egoísmo cegador y el miedo a la muerte, los habitantes entregaron en sacrificio ritual a todos los niños menores de catorce años de la aldea, creyendo que con su sangre finalmente comprarían la ansiada lluvia.\n\nPero el cosmos no recompensa la crueldad. En la noche del ritual, el suelo no brotó agua, sino una viscosa brea verde y resplandeciente. Todas las almas de las víctimas, arrebatadas con violencia y dolor, rehusaron cruzar al más allá y se fusionaron en el altar en una sola masa amorfa y sufriente. De este baño de sangre nació LIREN-KEN, un demonio cuyo nombre en el dialecto antiguo significa literalmente \"Inocentes Penando\". La entidad no poseía una forma definida; era una pesadilla viviente de fluido necrótico sobre el cual emergían, convulsionaban y gritaban las decenas de rostros de los pequeños traicionados.\n\nLiren-Ken no nació para traer la lluvia, sino impulsado por una ira colosal y una pena insoportable. En cuestión de minutos, el demonio arremetió contra Lucua. Su masa de almas aplastó las estructuras, devoró a los ancianos y masacró a cada uno de los adultos que habían permitido semejante atrocidad, reduciendo el próspero asentamiento a un campo de ruinas estériles en una sola noche. Exhausto tras su venganza y consumido por su propio tormento eterno, el demonio huyó horrorizado del lugar de su nacimiento. Desde aquel fatídico día, la criatura vaga sin rumbo por los vastos y desolados parajes del Desierto de Kor-Vash, lamentándose bajo el sol y aguardando a cualquiera que ose cruzar su camino para sumar su agonía a la masa.",
+        "atributos": {
+            "inteligencia": 4,
+            "fuerza": 87,
+            "velocidad": 25,
+            "magia": 91,
+            "defensa": 60
+        },
+        "imagen": "personajes/lirenken.jpg",
+        "puntosPositivos": 3,
+        "puntosNegativos": 2,
+        "duelos": 25
+    },
+    {
+        "id": "thalassa",
+        "nombre": "Thalassa",
+        "tipo": "Sirena, Agua",
+        "historia": "Dicen las antiguas leyendas que Thalassa no nació de una madre, sino del primer suspiro del mar. A diferencia de otras sirenas, su cola no es de carne ni de escamas, sino de agua viva, transparente y profunda, que se une sin costuras con el resto del océano. Ella no puede pisar la tierra ni despegarse de la corriente; está atada para siempre al azul infinito. Pero estar anclada es también su mayor poder: su mente y su corazón laten al mismo ritmo que el planeta. Si un pez pequeño se mueve en las profundidades o una gota de lluvia cae en el mar, Thalassa lo siente al instante en su propia piel.\n\nPara ella, el mar no es un lugar donde vive, sino su propio ser. Cuando la luna llena mueve las mareas, Thalassa siente un encanto antiguo que la hace brillar en la oscuridad. Si una tormenta mágica se desata en el horizonte, sus ojos cambian de color como el agua agitada y su voz retumba como el trueno sobre las olas. Ella conoce los secretos más oscuros que se tragaron los barcos antiguos y sabe qué criaturas fantásticas duermen en las fosas marinas donde nunca llega la luz del sol. Es, en verdad, la guardiana de todo lo que el agua oculta.\n\nLos viejos navegantes cuentan que, en las noches de niebla espesa, la forma de Thalassa flota sobre las olas, brillando con una luz suave y misteriosa. No busca hacer daño a los barcos; su canto es un susurro antiguo, una melodía hecha de viento y espuma que cuenta la historia del mundo antes de los humanos. Quienes la han visto dicen que mirar sus ojos es como mirar el fondo del mar: hermoso, inmenso y profundamente solitario, recordando a todos que el océano tiene un alma viva que nunca podrá salir de él.",
+        "atributos": {
+            "inteligencia": 68,
+            "fuerza": 35,
+            "velocidad": 50,
+            "magia": 70,
+            "defensa": 35
+        },
+        "imagen": "personajes/thalassa.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "ario",
+        "nombre": "Ario",
+        "tipo": "Ángel, Luz",
+        "historia": "En los albores de la existencia, el cosmos era un abismo silencioso y gélido interrumpido únicamente por una sola fuente de luz. Esta chispa primigenia permanecía estática en el centro de la nada, orbitada tan solo por un puñado de planetas privilegiados que gozaban de su calor y su brillo, mientras que el resto del universo yacía condenado a una penumbra eterna. Al comprender que la vida no podía florecer en el aislamiento, los dioses moldearon a Ario de la misma materia que las estrellas. Fue concebido con un único propósito divino: levantar la inmensa esfera de luz sobre su hombro derecho y convertirse en el primer motor del tiempo y la creación.\n\nDesde el instante en que Ario echó a correr, el universo conoció por primera vez el movimiento y el cambio. Desplazándose con una velocidad absoluta —la velocidad misma de la luz—, el ángel cruzó el vacío dejando tras de sí un rastro brillante de fotones y auroras que dio forma a las galaxias. Al pasar cerca de los mundos inertes, la luz sobre su hombro despertaba los mares, encendía las atmósferas y dividía la eternidad en ciclos de día y noche. Para Ario no existen la fatiga ni la pausa; su viaje es un presente perpetuo donde cada zancada extiende los límites del cosmos conocido y lleva consigo la semilla de la existencia.\n\nSin embargo, la inmensidad del universo trasciende incluso la velocidad de un ser divino, y Ario no posee la facultad de la omnisciencia. Aquellos confines remotos que aún permanecen sumidos en las sombras no sufren el abandono de los dioses, sino el desconocimiento del viajero: la luz todavía no ha llegado a ellos simplemente porque Ario no sabe que su presencia es necesaria. El ángel continúa su carrera infinita a través de la nada, atento a cualquier chispa, plegaria o suspiro de vida que resuene desde la oscuridad, listo para virar su rumbo hacia aquellos rincones olvidados que claman por conocer la aurora.",
+        "atributos": {
+            "inteligencia": 13,
+            "fuerza": 45,
+            "velocidad": 100,
+            "magia": 78,
+            "defensa": 60
+        },
+        "imagen": "personajes/ario.jpg",
+        "puntosPositivos": 4,
+        "puntosNegativos": 1,
+        "duelos": 25
+    },
+    {
+        "id": "laarmaduradelreymorvath",
+        "nombre": "La Armadura del Rey Morvath",
+        "tipo": "Fantasma",
+        "historia": "El Rey Morvath fue un conquistador implacable que mantuvo el orden en los reinos del norte con mano de hierro. En la víspera de su consolidación total, sus siete generales de confianza, consumidos por la codicia y el miedo a su poder, lo emboscaron en la gran sala del trono y lo atravesaron con sus propias espadas. Desangrándose sobre el suelo de piedra, el monarca no suplicó por su vida; en su lugar, susurró una maldición ancestral sobre la armadura de combate que vestía, ofreciendo su alma y su furia al acero para asegurarse de que su justicia sobreviviera a su cuerpo.\n\nSiglos después de que el reino colapsara y los generales se repartieran el botín, la pesada armadura mellada se levantó de las ruinas como un autómata metálico consciente. No hay carne, corazón ni huesos debajo de las placas de hierro, sino una neblina espectral de color rojo fuego que arde a través de la ranura del yelmo. La armadura se desplaza con un resonar pesado e imperturbable: no requiere descanso, no siente dolor y sostiene la devastadora espada de dos manos de Morvath con una potencia destructiva inalcanzable para cualquier mortal.\n\nAhora, la armadura vaga sin descanso por el mundo rastreando a los descendientes directos de los siete generales traidores. La sangre de aquellas familias se ha mezclado y dispersado en nobles, campesinos y mercenarios a lo largo del tiempo, pero la armadura puede oler la marca de la traición en sus venas sin importar cuán lejos intenten esconderse. Cada vez que ejecuta al último heredero de un linaje culpable, una de las siete runas grabadas en su pectoral se apaga, acercando al rey espectral un paso más a completar su venganza y descansar en paz.",
+        "atributos": {
+            "inteligencia": 1,
+            "fuerza": 70,
+            "velocidad": 42,
+            "magia": 78,
+            "defensa": 89
+        },
+        "imagen": "personajes/laarmaduradelreymorvath.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "cassian",
+        "nombre": "Cassian",
+        "tipo": "Vampiro",
+        "historia": "Cassian es un antiguo vampiro que rechazó la decadencia de las cortes nocturnas para perfeccionar el arte prohibido de la hemomancia física. A diferencia de otros de su especie que solo buscan alimentarse para mantener la juventud, Cassian aprendió a manipular la estructura de su propia sangre a voluntad, alterando su densidad al contacto con el aire para transformar el líquido vital en estalagmitas, escudos y hojas tan duras y filosas como la obsidiana.\n\nEn combate, Cassian es su propio arsenal. Se inflige cortes deliberados en los brazos o palmas para proyectar chorros de sangre que se congelan y solidifican en milisegundos, formando espadas de cristal rojo, armaduras reactivas o púas mortales. Sin embargo, esta habilidad tiene una desventaja brutal: cada arma que crea consume físicamente el volumen de sangre de su cuerpo. Mientras más lucha y más armas moldea, más pálido, lento y débil se vuelve, corriendo el riesgo de quedar completamente disecado en medio de la batalla.\n\nEsta limitación convierte su estilo de pelea en un ciclo desesperado y sangriento. Para no morir por desangramiento propio, Cassian debe romper la distancia con sus enemigos y alimentarse directamente de ellos en pleno combate, utilizando la sangre de sus víctimas como \"recarga de munición\" para reconstruir su cuerpo y seguir moldeando su armamento. Desterrado por sus iguales tras masacrar a su propio clan en un duelo de honor, ahora recorre los campos de batalla vendiendo su acero viviente al mejor postor.",
+        "atributos": {
+            "inteligencia": 70,
+            "fuerza": 90,
+            "velocidad": 80,
+            "magia": 60,
+            "defensa": 75
+        },
+        "imagen": "personajes/cassian.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "reinavaleria",
+        "nombre": "Reina Valeria",
+        "tipo": "Fantasma",
+        "historia": "Durante años, su reinado fue sinónimo de paz y equidad. Era una monarca amada que gobernaba con una justicia inquebrantable, asegurando que tanto el noble más rico como el campesino más humilde recibieran el mismo trato ante la ley. Su reino florecía bajo su mano firme pero bondadosa, despertando la envidia de los imperios vecinos. Sin embargo, la codicia pudo más que la lealtad; dos de sus consejeros más de confianza, tentados por el oro y las promesas de poder, la traicionaron en la oscuridad de la noche. Cortaron su cabeza y la entregaron en bandeja de plata al rey del reino rival, creyendo que con ello pondrían fin a su linaje y se alzarían como nuevos amos.\n\nPero una justicia tan pura no puede ser silenciada por la muerte. La traición fue tan profunda que el alma de la reina se negó a abandonar el plano terrenal. Levantándose como un espíritu envuelto en ira y pena, su primer acto de venganza fue dar caza a los dos traidores, castigándolos con una crueldad que jamás habría permitido en vida. Aquel acto de retribución desató una poderosa maldición que cayó sobre toda la capital. El reino entero quedó atrapado y confinado en los límites del pueblo; una barrera invisible y letal rodea ahora sus fronteras, condenando a una muerte sangrienta a cualquiera que intente escapar de sus dominios.\n\nHoy, la aldea es una prisión espectral donde el tiempo parece haberse detenido. Los habitantes viven bajo un régimen de terror absoluto disfrazado de rectitud, forzados a vivir con una lealtad y una justicia intachables entre ellos. Al menor indicio de crimen, mentira o traición, el alma en pena de la reina aparece para ejecutar al culpable sin juicio previo. La mayor y más oscura tragedia de este pueblo maldito es que su monarca, vagando por los pasillos de su castillo en ruinas y dictando sentencias en las sombras, aún no se ha dado cuenta de que está muerta.",
+        "atributos": {
+            "inteligencia": 7,
+            "fuerza": 80,
+            "velocidad": 45,
+            "magia": 89,
+            "defensa": 40
+        },
+        "imagen": "personajes/reinavaleria.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "krakor",
+        "nombre": "Krakor",
+        "tipo": "Titan, Tierra",
+        "historia": "Hace incontables eras, cuando el mundo aún era joven y los dioses forjaban el equilibrio de la creación, dieron vida a diez titanes para custodiar los pilares de la naturaleza. Cada uno recibió la responsabilidad de proteger un aspecto esencial del mundo, y al más grande de todos lo llamaron Krakor, el Titán de las Montañas. Su cuerpo fue moldeado con roca primordial, granito y minerales ancestrales, mientras que en su pecho colocaron el corazón mismo de la tierra. Su larga cabellera, formada por piedra, hielo y raíces milenarias, cae sobre sus hombros cubiertos de nieve, de donde nacen innumerables ríos que recorren el mundo. Desde el día de su creación, cada cordillera, cada valle y cada nacimiento de agua quedaron unidos a su existencia.\n\nCuando la obra de los dioses llegó a su fin, comprendieron que un poder tan inmenso no podía permanecer despierto eternamente. Le ordenaron a Krakor recostarse sobre la cordillera más antigua del planeta y entregarse a un sueño que duraría diez mil años. Con el paso de las eras, bosques enteros crecieron sobre su cuerpo, glaciares cubrieron sus hombros y las montañas terminaron confundiéndose con su piel de piedra. Civilizaciones nacieron, prosperaron y desaparecieron sin sospechar que aquellas inmensas montañas eran, en realidad, un titán dormido. Solo la propia tierra posee el poder de despertarlo cuando siente que el equilibrio de las aguas comienza a romperse.\n\nCada diez mil años, el mundo entero tiembla con el despertar de Krakor. Su colosal figura se alza sobre continentes enteros mientras observa el estado de la naturaleza con la sabiduría acumulada durante millones de años. Allí donde la tierra se seca, abre nuevos cañones; donde los ríos dejan de alimentar la vida, desvía su curso con el movimiento de sus manos; y donde las montañas han cumplido su ciclo, las derrumba para levantar otras nuevas. Su labor apenas dura unos pocos días antes de volver a recostarse y dormir durante otros diez mil años. Para los mortales, los terremotos y los cambios del paisaje son catástrofes naturales; para los dioses, son simplemente la obra de Krakor, el eterno guardián de las montañas, cuya existencia mantiene el equilibrio del mundo.",
+        "atributos": {
+            "inteligencia": 12,
+            "fuerza": 100,
+            "velocidad": 13,
+            "magia": 25,
+            "defensa": 100
+        },
+        "imagen": "personajes/krakor.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "reinahali",
+        "nombre": "Reina Hali",
+        "tipo": "Bruja, Druida",
+        "historia": "Durante trece años, Hali fue solo una niña común, totalmente ajena al secreto que dormía bajo su piel. En sus venas latía un linaje olvidado, una antigua herencia de brujas y druidas que los ancianos del pueblo miraban con velado temor. La tragedia estalló en una noche sin luna: cegados por el miedo a la magia ancestral, los aldeanos irrumpieron en su hogar con antorchas y acero, masacrando a sus padres sin piedad. Descalza, con la ropa hecha jirones y el rostro manchado de ceniza, la pequeña huyó a ciegas hacia la penumbra del bosque primigenio, escuchando a lo lejos cómo las llamas consumían todo lo que alguna vez amó.\n\nSola en la inmensidad de la noche, sin que nadie la persiguiera más que la sombra de su propio dolor, Hali colapsó en el interior de las raíces de un árbol ancestral. Temblando, observó cómo una profunda cortada en su pierna goteaba sobre la hojarasca húmeda. Atraído por la tibieza del líquido, un pequeño ciempiés emergió del barro para lamer la herida. Al primer contacto con esa sangre cargada de magia pura, el cuerpo del artrópodo comenzó a chasquear y retorcerse convulsamente; sus anillos de quitina se expandieron en segundos y sus patas crecieron como estacas de hueso hasta convertirlo en una bestia monstruosa de tamaño colosal. Lejos de atacarla, la criatura inclinó sus mandíbulas ante la niña en señal de sumisión. Fue en ese instante, al sentir el vínculo mental con el leviatán, cuando Hali comprendió el aterrador poder de su sangre.\n\nCon el corazón petrificado por la ira, la niña regresó a la aldea antes de que amaneciera, arrastrando a su fiera creación y a las bestias que brotaban a su paso con cada gota de su piel herida. La noche se llenó de gritos y crujidos mientras el enjambre gigante reducía a cenizas a los asesinos de sus padres, cobrando una venganza sangrienta e implacable. Cuando el silencio volvió a reinar, el pueblo entero estaba vacío y totalmente a su merced. Sin embargo, Hali miró con desprecio las ruinas humanas; no quería nada que viniera de la civilización. Le dio la espalda al cadáver de su antiguo hogar y caminó descalza hacia la densidad indómita de la selva profunda. Allí, envuelta en barro y protegida por el zumbido eterno de sus únicos y verdaderos aliados, la niña reclamó su trono como Hali, la Reina de los Insectos.",
+        "atributos": {
+            "inteligencia": 35,
+            "fuerza": 13,
+            "velocidad": 21,
+            "magia": 87,
+            "defensa": 12
+        },
+        "imagen": "personajes/reinahali.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "yaren",
+        "nombre": "Yaren",
+        "tipo": "Humano, Demonio",
+        "historia": "En los albores de la creación, Yaren poseía una única función divina: examinar el inmenso registro de las faltas terrenales, actuando como el juez implacable que decidía qué almas serían condenadas al infierno. Siglo tras siglo, su mente celestial se vio forzada a sumergirse en los abismos más oscuros de la condición humana, atestiguando aberraciones, traiciones y crueldades de incalculable magnitud. Ninguna entidad podía contemplar tanta podredumbre sin fracturarse. Abrumado y enloquecido por la incesante marea de maldad, la antigua imparcialidad de Yaren se corrompió hasta transformarse en una obsesión fría y absoluta: consideraba a la humanidad una plaga que debía ser erradicada de la existencia.\n\nConvencido de su causa, presentó su propuesta de purga ante el panteón divino, pero los Dioses rechazaron rotundamente su petición; una clemencia hacia los humanos que su mente retorcida jamás logró comprender. Imposibilitado para aceptar la supervivencia de semejantes monstruos, Yaren decidió desafiar el orden cósmico y descender al mundo terrenal para ejecutar el genocidio por su propia mano. Sin embargo, su traición no pasó desapercibida y el castigo fue devastador. Los Dioses lo interceptaron, le arrancaron las alas brutalmente, despojándolo de su gracia celestial, y lo arrojaron a la tierra convertido en un frágil y perecedero mortal.\n\nA pesar de su dolorosa caída, hubo un don tan intrínseco a su ser que ni el poder combinado de las deidades pudo arrebatarle: la capacidad de ver y conocer, al instante, cada pecado, secreto y atrocidad cometida por cualquier ser del universo. Atrapado ahora en el barro junto a las criaturas que tanto aborrece, el ángel caído ha adaptado su cruzada a su nueva realidad. Aunque Yaren ya no cuenta con la fuerza divina para exterminar a la especie a gran escala, utiliza su aterradora omnisciencia como un arma implacable, infiltrándose en las mentes de los malvados para susurrarles sus propios pecados y torturarlos psicológicamente hasta arrastrarlos a la locura absoluta.",
+        "atributos": {
+            "inteligencia": 97,
+            "fuerza": 50,
+            "velocidad": 54,
+            "magia": 20,
+            "defensa": 17
+        },
+        "imagen": "personajes/yaren.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "vira",
+        "nombre": "Vira",
+        "tipo": "Hada, Hierba",
+        "historia": "En las profundidades de Ardenval, un ancestral y frondoso bosque místico, vivía una joven mortal conocida por su profundo amor hacia la naturaleza y sus criaturas. Su destino cambió para siempre el día en que un feroz incendio forestal consumió el corazón del bosque; al adentrarse valientemente entre las llamas en un intento desesperado por salvar la vida silvestre, la joven quedó acorralada por el fuego voraz y su cuerpo mortal pereció en medio de la desolación.\n\nSin embargo, su espíritu se negó a abandonar la tierra amada. En medio del silencio posterior a la tragedia, la magia de Ardenval reaccionó cuando un pequeño y resistente brote verde emergió entre las cenizas. En un acto milagroso de alquimia natural, el alma de la joven, el calor de las cenizas del bosque destruido y la inagotable fuerza de aquel primer brote se fusionaron armónicamente, dando nacimiento al hada Vira.\n\nHoy en día, Vira encarna la resiliencia y el renacimiento de Ardenval, luciendo una figura silvestre vestida con elementos de la tierra y alas resplandecientes como brasas doradas. Llevando siempre entre sus manos el brote sagrado que le dio origen, recorre el bosque sanando la vegetación a su paso y recordando al mundo que, aun desde las cenizas más oscuras, la vida siempre encuentra la forma de volver a florecer.",
+        "atributos": {
+            "inteligencia": 78,
+            "fuerza": 12,
+            "velocidad": 48,
+            "magia": 89,
+            "defensa": 1
+        },
+        "imagen": "personajes/vira.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "reyzorak",
+        "nombre": "Rey Zorak",
+        "tipo": "Demonio, Fuego",
+        "historia": "Zorak es el soberano absoluto de Zaradon, la caldera del infierno donde van a parar los asesinos para sufrir bajo un calor sofocante e insoportable. Lejos de ser un bruto irreflexivo, Zorak es un líder metódico, inflexible y sumamente disciplinado que gobierna a los criminales más sanguinarios con mano de hierro. En un territorio donde las llamas queman hasta los huesos y el aire parece fuego líquido, él mantiene el control imponiendo una rutina militar estricta, convencido de que la disciplina es lo único que evita el caos total en su reino. \n\nCuando los dioses castigaron al inframundo cortando todo el suministro de alimentos, Zorak tomó la postura más conservadora pero difícil de ejecutar. Se negó rotundamente a que su pueblo cayerara en la barbarie del canibalismo y obligó a todos sus súbditos a alimentarse exclusivamente de los frutos podridos que crecían en las grietas del suelo. Con un puño implacable, aplastó cada rebelión interna y enseñó a su gente a soportar el hambre y la agonía como un acto de penitencia, creyendo firmemente que solo demostrando sumisión y arrepentimiento lograrían recuperar el perdón de los cielos. \n\nDurante miles de años, Zorak ha mantenido a sus tropas en un estado de alerta permanente, observando las fronteras con ojo crítico. Siente un profundo desprecio por la locura caníbal de Xeria y considera la ambición de Rhyon como una imprudencia suicida. Aunque está desesperado por terminar con la miseria de su pueblo, sabe muy bien que si mueve a su ejército para atacar a cualquiera de sus vecinos, el reino restante aprovechará su debilidad para invadirlo por la espalda. Por eso, prefiere soportar el calor y la escasez, esperando pacientemente a que los demás cometan un error para actuar.",
+        "atributos": {
+            "inteligencia": 98,
+            "fuerza": 98,
+            "velocidad": 89,
+            "magia": 60,
+            "defensa": 80
+        },
+        "imagen": "personajes/reyzorak.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "reyrhyon",
+        "nombre": "Rey Rhyon",
+        "tipo": "Demonio, Hielo",
+        "historia": "Rhyon gobierna los dominios de Mitheryn, el desierto congelado del infierno donde los sádicos son castigados con un frío tan extremo que corta la piel como miles de cuchillas. Frío y calculador, Rhyon logró adaptar su propio cuerpo al sufrimiento helado hasta convertir la escarcha en una armadura impenetrable. Bajo su mando implacable, la crueldad de su gente fue organizada en un ejército temible donde solo los más fuertes logran mantenerse en pie. \n\nEl caos en el infierno se desató el día que un demonio se filtró al mundo humano y asesinó a una figura mortal clave. La ira divina no se hizo esperar: los dioses castigaron a todo el inframundo cortando la comida y obligando a los demonios a consumirse entre sí. Sin embargo, Rhyon consideró esto una afrenta imperdonable a su orgullo. Rechazó la idea de pedir perdón y propuso unir a los tres reinos para marchar a los cielos, masacrar a los dioses y arrebatarles el poder absoluto para no volver a pasar hambre jamás. \n\nLamentablemente para sus planes de conquista, el infierno está paralizado por la desconfianza. Rhyon no puede marchar a la guerra celestial ni atacar a las otras naciones infernales, porque sabe que si descuida sus fronteras heladas, sus rivales invadirán Mitheryn de inmediato. Por eso, pasa los siglos sentado en su trono de hielo, calculando cada movimiento de sus vecinos y esperando ansiosamente el momento en que la frágil tregua se rompa para congelar tanto el infierno como el reino de los dioses.",
+        "atributos": {
+            "inteligencia": 45,
+            "fuerza": 99,
+            "velocidad": 81,
+            "magia": 62,
+            "defensa": 82
+        },
+        "imagen": "personajes/reyrhyon.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "reinaxaira",
+        "nombre": "Reina Xaira",
+        "tipo": "Demonio, Oscuro",
+        "historia": "Xaira es la reina de Serophia, la fosa tenebrosa donde los ambiciosos y adictos que dañaron a otros son castigados con una oscuridad sólida, densa y completamente ciega. Mientras que cualquiera se volvería loco al no poder ver ni respirar bien en este abismo tangible, Xaira aprendió a moverse con gracia letal entre la penumbra. Con virtudes de cazadora nocturna, convirtió la ceguera de su reino en un territorio donde solo ella y sus instintos dictan las reglas. \n\nEl destino del inframundo cambió para siempre cuando un demonio logró escabullirse a la Tierra y asesinar a un humano de vital importancia. En respuesta, los dioses castigaron a los tres reinos quitándoles todo alimento y dejándolos a su suerte. Mientras los otros reyes debatían entre pedir perdón o declarar la guerra a los cielos, Xairase enfocó en la supervivencia pura: le dio libre albedrío a su pueblo para devorar a cualquiera que tuviera enfrente, ya fuera demonio, humano o incluso un dios si se ponía a su alcance. \n\nHoy en día, Xaira gobierna sobre una colmena de monstruos hambrientos que acechan en las sombras tangibles. Durante miles de años ha mantenido un tenso estancamiento militar con los reyes de Zaradon y Mitheryn, sabiendo que ambos le tienen un terror absoluto a la naturaleza caníbal y salvaje de su ejército. Usando esa paranoia a su favor, Xaira espera pacientemente desde la oscuridad, lista para abalanzarse sobre cualquiera que baje la guardia y convertirlo en el próximo banquete de Serophia.",
+        "atributos": {
+            "inteligencia": 99,
+            "fuerza": 44,
+            "velocidad": 99,
+            "magia": 40,
+            "defensa": 87
+        },
+        "imagen": "personajes/reinaxaira.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "nautilos",
+        "nombre": "Nautilos",
+        "tipo": "Titan, Agua",
+        "historia": "Nautilos no es un ser de carne y hueso, sino una encarnación viviente de la presión y la corriente abisal. Su existencia es anterior a la formación de los continentes tal como los conocemos, un vestigio de la era primordial cuando la Tierra estaba cubierta por un océano global. No nada ni flota; su propósito es caminar. Con cada paso colosal que da sobre la corteza oceánica a kilómetros de profundidad, sus extremidades titánicas —formadas por coral, basalto antiguo y energía bioluminiscente— ejercen una fuerza inimaginable sobre el lecho marino, desplazando masas de agua que se convierten en el pulso rítmico del océano mundial. \n\nDurante eones, este ciclo ha sido invisible para el mundo de la superficie. Nautilos camina en una eterna penumbra, ignorante de las civilizaciones que han surgido y caído sobre las olas que él mismo genera. Su marcha lenta y deliberada crea las mareas y las corrientes profundas que regulan el clima del planeta, actuando como el corazón latiente de la hidrosfera. Los pocos seres abisales que habitan cerca de su ruta migratoria sienten su paso no como una amenaza, sino como una constante geológica, un fenómeno natural tan ineludible como el movimiento de las placas tectónicas. \n\nEn raras ocasiones, cuando las corrientes que él genera convergen en una tormenta perfecta o cuando su ruta lo acerca demasiado a la plataforma continental, la superficie del océano reacciona con una furia inusual. Se forman olas gigantescas y marejadas que desafían toda lógica meteorológica, un mero efecto secundario del levantamiento de un hombro o el giro de una cabeza a miles de metros de profundidad. Para los marineros, estos eventos son conocidos como el suspiro de Nautilos, un recordatorio aterrador de la inmensa y desconocida fuerza que camina silenciosamente en las entrañas del abismo.",
+        "atributos": {
+            "inteligencia": 2,
+            "fuerza": 99,
+            "velocidad": 7,
+            "magia": 53,
+            "defensa": 98
+        },
+        "imagen": "personajes/nautilos.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "skjar",
+        "nombre": "Skjar",
+        "tipo": "Bestia, Hielo",
+        "historia": "En las tierras más frías y remotas del mundo nació Skjar, el primer fénix glaciar. A diferencia de los fénix comunes, sus plumas están hechas de pura magia invernal y su fuego es único: sus llamas no queman ni dan calor, sino que congelan instantáneamente todo lo que tocan. Cuando Skjar ataca o se defiende, su fuego gélido envuelve a sus enemigos y los convierte en estatuas de hielo irrompible en cuestión de segundos. \n\nSu forma de engañar a la muerte es igual de asombrosa. Cuando Skjar está muy malherido en combate, su cuerpo no estalla en cenizas calientes. En lugar de eso, se consume a sí mismo en una combustión helada, bajando su temperatura de golpe hasta convertirse en un brillante montículo de escarcha. Es desde esos mismos restos de donde ocurre el milagro: el hielo se rompe y Skjar resurge, renacido de su propia escarcha con sus energías totalmente renovadas. \n\nSin embargo, Skjar no estuvo solo por mucho tiempo. Su magia y su primer renacimiento fueron tan poderosos que dieron origen a muchos otros fénix de hielo. Al ser el primero de su especie, Skjar se convirtió naturalmente en el gran líder de this nueva y majestuosa bandada de fénix glaciares. Hoy, cuando surca los cielos, lo hace a la cabeza de los suyos, guiando y protegiendo juntos las tierras del invierno eterno.",
+        "atributos": {
+            "inteligencia": 80,
+            "fuerza": 35,
+            "velocidad": 78,
+            "magia": 85,
+            "defensa": 20
+        },
+        "imagen": "personajes/skjar.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "maila",
+        "nombre": "Maila",
+        "tipo": "Bruja",
+        "historia": "Todo comenzó cuando el mago Valerius cometió un grave error al experimentar con su magia: sin querer, borró 1 minuto y 34 segundos de la historia. Para la gente común solo fue un pestañeo imperceptible, pero para la realidad fue un desastre enorme. Para detener el caos, los dioses encarcelaron al mago y decidieron esconder todo ese poder descontrolado dentro de Maila, una bebé que nació exactamente durante ese minuto y treinta y cuatro segundos que habían desaparecido.\n\nAl crecer con ese tiempo robado en su interior, Maila descubrió que no era una niña común. A su alrededor pasaban cosas extrañas: las plantas podían florecer en un segundo, la lluvia se congelaba en el aire y ella podía detener el tiempo a su voluntad. Al comprender la fuerza que llevaba en el pecho, la joven aceptó su destino y comenzó a llamarse a sí misma la Bruja del Tiempo.\n\nHoy en día, Maila viaja por el mundo intentando dominar un poder que ni los propios dioses entienden del todo. Cada vez que usa su magia, siente la voz de Valerius intentando comunicarse con ella desde su prisión astral para recuperar su antiguo poder. Mientras tanto, los dioses la vigilan con temor, sabiendo que si Maila pierde el control, el tiempo tal como lo conocemos podría romperse para siempre.",
+        "atributos": {
+            "inteligencia": 50,
+            "fuerza": 15,
+            "velocidad": 99,
+            "magia": 99,
+            "defensa": 19
+        },
+        "imagen": "personajes/maila.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "vaelín",
+        "nombre": "Vaelín",
+        "tipo": "Vampiro",
+        "historia": "Vaelín comenzó como el más admirado y apuesto caballero del ejército del reino de Aethelgard. Su destino cambió la noche en que, tras vagar por la costa, conquistó a Jia, la diosa de la noche, quien enamorada de su encanto físico le otorgó juventud e inmortalidad a cambio de unir sus almas en cada luna nueva. Sin embargo, en la séptima luna nueva, Vaelín rompió cruelmente el pacto. Enardecida por la traición, Jia maldijo su propia bendición: a partir de ese instante, la inmortalidad y la belleza de Vaelín solo podrían sostenerse consumiendo carne y sangre humana, convirtiendo su gracia divina en una voraz necesidad monstruosa.\n\nEn lugar de huir a las sombras o desterrarse del reino, Vaelín perfeccionó el arte del engaño dentro de la propia corte real. Manteniendo su alto rango y su estatus de héroe intachable, aprovecha su indiscutible atractivo físico, su elegancia y sus modales refinados para encandilar a las mujeres de Aethelgard. Nadie en el castillo sospecha que detrás de su armadura reluciente y su sonrisa desarmante se oculta un depredador inmortal; para el reino, él sigue siendo el noble defensor que patrulla al amanecer.\n\nEn la penumbra, la seducción es su método de caza más efectivo. Vaelín atrae a sus víctimas a encuentros clandestinos y lugares apartados donde nadie pueda escuchar nada. Es allí donde se despoja de su fachada humana para devorar su carne y beber su sangre, garantizando así un ciclo más de impecable juventud. De esta manera, el caballero más codiciado de Aethelgard camina entre los mortales como un monstruo perfecto, pagando el precio de su traición divina con la vida de quienes caen rendidas ante su encanto.",
+        "atributos": {
+            "inteligencia": 60,
+            "fuerza": 87,
+            "velocidad": 80,
+            "magia": 75,
+            "defensa": 31
+        },
+        "imagen": "personajes/vaelin.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "mantisdehueso",
+        "nombre": "Mantis de Hueso",
+        "tipo": "Bestia, Insecto",
+        "historia": "En lo más profundo de los bosques olvidados, donde la luz del sol raras veces acaricia el suelo húmedo, habita la Mantis de Hueso, una pesadilla evolucionada en el corazón de la descomposición. Su exoesqueleto no está hecho de la quitina lisa de sus parientes menores, sino de una estructura calcificada y rugosa que imita a la perfección la corteza cenicienta y goteante de un tronco podrido. Durante semanas, este depredador gigante permanece en un letargo absoluto, mimetizándose entre la hojarasca y el musgo con una paciencia inmortal. Para cualquier viajero cansado o bestia que busque refugio, la criatura es indistinguible del paisaje, un resto inofensivo de madera vieja esperando en el silencio de la espesura.\n\nSin embargo, esa calma sepulcral es solo el preludio de un horror instantáneo. Al detectar la más leve vibración en la tierra, la Mantis de Hueso activa su trampa sin emitir un solo zumbido de advertencia. Sus extremidades delanteras, enormemente desarrolladas y desprovistas de carne, se despliegan como dos guadañas de marfil pulido que recuerdan a enormes costillas blanqueadas por el tiempo. En una fracción de segundo, la criatura asesta un golpe seco y devastador, capaz de atravesar corazas de metal y empalar a su presa de lado a lado antes de que esta pueda reaccionar o emitir un grito de auxilio.",
+        "atributos": {
+            "inteligencia": 2,
+            "fuerza": 71,
+            "velocidad": 80,
+            "magia": 7,
+            "defensa": 88
+        },
+        "imagen": "personajes/mantisdehueso.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "valakor",
+        "nombre": "Valakor",
+        "tipo": "Demonio",
+        "historia": "En los albores del cosmos, Valakor fue el gran Escultor de la Naturaleza, un ser divino que dedicó eones a tallar cada planeta, estrella y paisaje del universo con una perfección matemática y estética absoluta. Valakor amaba su obra de arte más que a su propio ser y más que a los mismos Dioses, lo que fue considerado la blasfemia definitiva en los cielos. Cuando las deidades tomaron la decisión de entregar esa naturaleza virgen a los mortales —seres imperfectos, egoístas e impuros que inevitablemente marchitarían y ensuciarían su obra maestra—, Valakor no pudo ocultar su desprecio y rechazó rotundamente el mandato divino.\n\nDecidido a proteger la pureza de sus mundos, Valakor alzó sus manos contra la corte celestial en una guerra trágica e inevitable. Superado en poder, fue derrotado, encadenado y arrojado a las profundidades más oscuras del Infierno, condenado a la tortura eterna de contemplar desde las sombras cómo las razas mortales explotaban, contaminaban y destruían su amada creación. Atrapado en el abismo, su abrumador dolor, su rabia y su luto se condensaron; de su propia agonía engendró a siete hijos de sangre, siete demonios creados con un único propósito sagrado.\n\nEstos siete hermanos, reconocidos universalmente como Los Demonios de los 7 Pecados Capitales, fueron enviados por Valakor al plano mortal con la orden de infectar y destruir gradualmente a toda la existencia consciente que osara pisar su obra. Liderados por el primogénito —quien encarna La Soberbia y heredó el desprecio más absoluto de su padre por la impureza mortal—, los siete hermanos actúan como la plaga definitiva encargada de erradicar a los mortales para que el universo vuelva a ser la escultura perfecta e intacta que su padre diseñó.",
+        "atributos": {
+            "inteligencia": 80,
+            "fuerza": 1,
+            "velocidad": 1,
+            "magia": 30,
+            "defensa": 1
+        },
+        "imagen": "personajes/valakor.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "hetion",
+        "nombre": "Hetion",
+        "tipo": "Demonio",
+        "historia": "Engendrado a partir del dolor inmenso y la furia inagotable de Valakor, Hetion emergió de las profundidades como uno de los demonios de los siete pecados capitales, junto a sus seis hermanos. Al ver su creación invadida por los mortales, Valakor los envió al plano terrenal con un único y oscuro propósito: aniquilar a cada ser que osara pisar y manchar su obra de arte. Como la personificación misma de la Soberbia, Hetion desprecia profundamente a las razas mortales, pero ese odio palidece frente al rencor hirviente que siente hacia los dioses, aquellos que condenaron a su padre al infierno y al sufrimiento eterno.\n\nPara Hetion, purgar los mundos es apenas el primer paso. Su verdadera ambición es librar una guerra contra los cielos, combatir directamente contra los dioses y destruirlos a todos sin piedad. Anhela arrebatarles el poder divino para exigir que absolutamente todo ser en la creación se doblegue ante él y lo adore. En su infinita arrogancia, está plenamente convencido de que es la entidad más pura, perfecta y digna de gobernar en todo el plano existencial.\n\nSin embargo, detrás de su colosal ego se esconde una mente calculadora. Sabe perfectamente que, por ahora, su poder no es suficiente para destruir a las deidades por sí solo. Por esta razón, decide tragar su impaciencia y mantenerse oculto bajo la estricta obediencia de Valakor. Mientras aguarda el momento perfecto para su traición divina, concentra toda su oscuridad y esfuerzo en cumplir fielmente su misión actual: desatar la ruina absoluta sobre la raza mortal.",
+        "atributos": {
+            "inteligencia": 70,
+            "fuerza": 77,
+            "velocidad": 69,
+            "magia": 65,
+            "defensa": 45
+        },
+        "imagen": "personajes/hetion.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "lyvia",
+        "nombre": "Lyvia",
+        "tipo": "Demonio",
+        "historia": "Engendrada a partir de la profunda amargura y la envidia que consumían a Valakor en su prisión infernal, Lyvia emergió como una de los temibles siete pecados capitales, junto a sus seis hermanos. Al igual que ellos, fue enviada por el antiguo escultor del universo a los distintos mundos con la misión de exterminar a todo ser que pisara y profanara su obra de arte. Sin embargo, lo que envenena la mente de Lyvia es una rabia muy particular: le carcome por dentro ver cómo las razas mortales —a las que considera criaturas inferiores— son capaces de sentir amor, alegría y gozo en un cosmos del que ella solo conoce el dolor y el vacío.\n\nComo la personificación misma de la Envidia, Lyvia considera que una muerte rápida para los mortales es un regalo inmerecido. Su método es mucho más retorcido: disfruta destruyendo sus vidas desde el interior, sembrando la sospecha, la codicia y la discordia en reinos enteros para que las propias razas se traicionen entre sí. Se le conoce como la Usurpadora de Rostros, pues le apasiona arrebatar las identidades, recuerdos, belleza y virtudes de sus víctimas antes de aniquilarlas, intentando llenar en vano su propia melancolía al robar todo aquello que ella jamás podrá poseer de forma natural.\n\nSu rencor hacia los dioses es profundo y venenoso, no solo por haber condenado a Valakor al sufrimiento eterno, sino por haberle regalado la hermosa creación a criaturas que no la merecían. Aunque su envidia la lleva a codiciar en secreto el poder supremo de los cielos y a recelar incluso de la fuerza de sus propios hermanos. Lyvia recorre los planetas corrompiendo almas e intentando que ningún ser mortal vuelva a disfrutar de la obra de arte de Valakor.",
+        "atributos": {
+            "inteligencia": 40,
+            "fuerza": 59,
+            "velocidad": 81,
+            "magia": 76,
+            "defensa": 29
+        },
+        "imagen": "personajes/lyvia.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "silas",
+        "nombre": "Silas",
+        "tipo": "Demonio",
+        "historia": "Engendrado a partir del dolor inmenso y la furia de Valakor, Silas emergió como uno de los miembros más siniestros de los siete pecados capitales, representando la Avaricia desmedida. Como enviado de su padre para purgar el universo, Silas no destruye los mundos solo con fuerza bruta, sino con codicia, ruina y miseria. Él es el dueño absoluto de todas las deudas existentes en los planetas, el orquestador invisible de los conflictos bélicos y el arquitecto detrás de las crisis económicas más devastadoras.\n\n Silas está obsesionado con el poder absoluto y el dominio total del plano existencial. Sin embargo, su visión es mucho más fría y calculadora. Silas es consciente de que la fuerza individual no es suficiente para derrocar a los cielos. En su mente no existe la lealtad: cree firmemente que si logra arrebatar y absorber la fuerza de sus seis hermanos y la de su propio padre, acumulará el poder definitivo necesario para aplastar a los dioses en una batalla brutal y reclamar el trono supremo de la existencia.\n\n A pesar de sus oscuras intenciones hacia su propia estirpe, Silas es un maestro de la paciencia y el engaño. Por ahora, oculta su ambición tras la máscara de un hijo servicial, ejecutando el mandato de Valakor sin vacilar. Permanece en las sombras del cosmos, manipulando los destinos de las razas mortales a través del caos financiero y el conflicto bélico, mientras espera meticulosamente el momento perfecto para traicionar a su familia, consumir su poder y librar la guerra definitiva contra las divinidades.",
+        "atributos": {
+            "inteligencia": 90,
+            "fuerza": 60,
+            "velocidad": 25,
+            "magia": 70,
+            "defensa": 36
+        },
+        "imagen": "personajes/silas.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "osiriana",
+        "nombre": "Osiriana",
+        "tipo": "Demonio",
+        "historia": "Engendrada a partir de la desesperada necesidad de anestesiar el dolor de Valakor, el antiguo escultor del universo, Osiriana emergió como una de los temibles siete pecados capitales. Ella es la personificación misma de la Gula: la necesidad desmedida e insaciable de los mortales por satisfacer los deseos de su cuerpo. Es la dueña y soberana absoluta de todas las adicciones, la encargada de concebir los venenos y sustancias que atan la carne, diseñándolos de tal forma que la verdadera satisfacción se encuentre cada vez más lejana e inalcanzable para la raza mortal.\n\nA diferencia del propósito original impuesto para purgar la obra de arte de su padre, Osiriana no siente un odio verdadero ni hacia las razas mortales ni hacia los dioses. En lugar de estar guiada por el rencor, la venganza o el deseo de conquista, su mente está completamente enfocada en la búsqueda de su propio éxtasis, euforia y placer hedonista. Deambula por el universo sumergida en la búsqueda del deleite físico, quedando a menudo tan fascinada con sus propios excesos que suele olvidar por completo su misión principal.\n\nPara ella, las guerras divinas y los mandatos de exterminio carecen de importancia mientras pueda experimentar nuevas sensaciones. Oculta en la penumbra del plano terrenal, continúa tejiendo la red de adicciones y vacíos que condena a las criaturas vivas a una búsqueda infinita de placer, utilizando la decadencia mortal como el telón de fondo perfecto para su propia y eterna fiesta de desenfreno.",
+        "atributos": {
+            "inteligencia": 30,
+            "fuerza": 40,
+            "velocidad": 20,
+            "magia": 80,
+            "defensa": 10
+        },
+        "imagen": "personajes/osiriana.jpg",
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 25
+    },
+    {
+        "id": "ohros",
+        "nombre": "Ohros",
+        "tipo": "Demonio",
+        "historia": "Engendrado a partir de la chispa más pura y cegadora que brotó de Valakor cuando fue traicionado y encerado, Ohros emergió como el más poderoso de los siete pecados capitales. Él es la personificación misma de la Ira: la encarnación implacable de la furia cósmica. Es, sin discusión, el hijo más fiel y devoto de su creador, obedeciendo cada mandato sin vacilar ni dudar jamás. Mientras otros pecados se distraen con sus propios placeres o ambiciones, la única brújula que guía su existencia es la venganza y la absoluta complacencia de su padre.\n\nEn el plano mortal, su presencia se manifiesta a través del odio absoluto. Él es la chispa invisible que enciende los peores impulsos de la humanidad: domina y corrompe los corazones de los asesinos, tiranos y verdugos, convirtiéndolos en extensiones de su propia furia. Cada vida arrebatada con rencor y cada guerra fratricida que estalla en los mundos es, en realidad, un fragmento de energía destructiva que canaliza pacientemente para romper los sellos que aprisionan a Valakor.\n\nSu poder sobrepasa con creces al de sus hermanos, convirtiéndolo en una auténtica fuerza de la naturaleza cósmica. No le interesan los lujos ni la adoración; su objetivo supremo es limpiar el universo a través de la violencia sistemática, esperando el día en que Valakor sea liberado para marchar a su lado y arrasar con los dioses que osaron robarle su trono.",
+        "atributos": {
+            "inteligencia": 60,
+            "fuerza": 90,
+            "velocidad": 35,
+            "magia": 89,
+            "defensa": 50
+        },
+        "imagen": "personajes/ohros.jpg"
+    },
+    {
+        "id": "maelis",
+        "nombre": "Maelis",
+        "tipo": "Demonio",
+        "historia": "Engendrada directamente de la pasión más pura y abrumadora que Valakor sintió al esculpir su obra maestra, Maelis emergió como la séptima y más singular de sus hijos. A diferencia de sus hermanos, nacidos del dolor, la rabia y la envidia, Maelis fue concebida del amor absoluto que Valakor sentía por la belleza y la armonía de su creación. Por ello, su misión no es la venganza ni la destrucción; es la preservación. Ella es la encarnación de la Lujuria, no como un vicio, sino como la fuerza magnética y seductora de la vida misma.\n\nSu corazón es el espejo del sufrimiento de su padre. Ella siente cada una de sus torturas en el abismo como si fueran propias, y su amor por él es tan profundo que la consume. Sin embargo, Maelis no conoce el odio. Es una criatura de belleza y gracia infinitas, ajena a la maldad. Su rostro y su cuerpo son tan perfectos que despiertan una adoración inmediata y protectora en cualquier ser, sea mortal o divino. Jamás ha sido tratada con crueldad, pues todos, incluso los dioses, se sienten impulsados a cuidarla y complacerla.\n\nElla no busca destruir a los mortales. Su único propósito, grabado a fuego en su esencia por el amor a su padre, es evitar que las manos perversas mancillen la escultura perfecta de Valakor. Para lograrlo, utiliza su arma más poderosa: la seducción. Mediante promesas de placer, afecto y una conexión profunda que solo ella puede ofrecer, hechiza a los dioses de la naturaleza y los convence para que se conviertan en los guardianes directos de los mundos mortales, protegiéndolos de su propia autodestrucción y manteniéndolos intactos para el día en que Valakor sea liberado.",
+        "atributos": {
+            "inteligencia": 85,
+            "fuerza": 20,
+            "velocidad": 35,
+            "magia": 78,
+            "defensa": 36
+        },
+        "imagen": "personajes/maelis.jpg"
+    },
+    {
+        "id": "eldor",
+        "nombre": "Eldor",
+        "tipo": "Demonio",
+        "historia": "Engendrado en el abismo más profundo a partir del agotamiento primordial y la inmensa melancolía que consumió a Valakor al ver su obra maestra profanada, Eldor emergió no como una simple ausencia de energía, sino como la encarnación absoluta del estancamiento cósmico: la Pereza hecha ley universal. Mientras sus hermanos desatan guerras y pasiones desmedidas, Eldor porta un poder mucho más aterrador: la autoridad para congelar el tiempo, detener el latido de civilizaciones enteras y apagar el fuego de las estrellas con la sola presión de su apatía.\n\nSu cuerpo juvenil, despojado de toda vanidad pero revestido con harapos que guardan el polvo de eras muertas y alas rasgadas que alguna vez rozaron los confines del firmamento, yace eternamente sobre un desierto estelar donde el universo entero parece contener la respiración. Lejos de ser una debilidad, su inercia es un campo gravitacional de desesperanza absoluta; cualquier mortal o deidad que se atreva a desafiarlo queda atrapado en un letargo mental donde el peso de la eternidad lo paraliza, convirtiéndolo lentamente en una estatua de carne y polvo.\n\nPara el gran arquitecto Valakor, Eldor es el arma definitiva del juicio silencioso: el encargado de asegurar que, cuando el caos de sus hermanos haya arrasado con la existencia, no quede ni un solo vestigio de movimiento o impureza. En su quietud infinita, Eldor aguarda pacientemente el colapso final del cosmos, sabiendo que su sombría y pesada sombra será la encargada de devolverle al universo la paz estática que su padre tanto añora.",
+        "atributos": {
+            "inteligencia": 25,
+            "fuerza": 20,
+            "velocidad": 1,
+            "magia": 85,
+            "defensa": 2
+        },
+        "imagen": "personajes/eldor.jpg"
+    },
+    {
+        "id": "hala",
+        "nombre": "Hala",
+        "tipo": "Sirena, Oscuro",
+        "historia": "Abisaria es un mundo desprovisto de tierra firme, un gigante líquido donde la superficie es apenas un espejo tormentoso que da paso a un océano eterno y sepulcral. En su núcleo, el punto exacto donde la presión del agua alcanza niveles descomunales —equivalentes a 3 millones de veces la presión de la corteza terrestre—, la física misma parece quebrarse bajo el peso del cosmos. En esta fosa sin nombre, la luz es un concepto completamente olvidado y la oscuridad posee una densidad tan aplastante, física y tangible que incluso los ciegos pueden percibir su textura pesada presionando contra su piel como una losa de obsidiana viva.\n\nOculto en este abismo insondable se encuentra el umbral prohibido que conduce al infierno de Serophia, custodiado celosamente por Hala, una sirena ancestral cuyas facciones combinan una belleza etérea y gélida con la monstruosidad implacable de las profundidades. Lejos de ser una criatura pasiva, Hala es la soberana absoluta de esta fosa hiperbárica, integrada por completo a la presión letal del entorno. Su voz no emite cantos de seducción superficial, sino frecuencias sísmicas de baja intensidad que resuenan a través de las corrientes termohalinas, dominando la psique de cualquier ser que intente cruzar su dominio.\n\nPara defender la entrada en caso de amenaza, Hala comanda una fuerza militar titánica compuesta por los depredadores más antiguos y colosales del océano planetario. A su servicio, millones de peces de bioluminiscencia extrema actúan como sus ojos en la negrura absoluta, permitiéndole vigilar cada rincón del abismo, mientras que, al menor indicio de intrusos, es capaz de desatar nubes vivas de destellos cegadores que alteran el entorno a voluntad para saturar, desorientar y destruir la vista del oponente en cuestión de segundos.",
+        "atributos": {
+            "inteligencia": 56,
+            "fuerza": 42,
+            "velocidad": 65,
+            "magia": 75,
+            "defensa": 80
+        },
+        "imagen": "personajes/hala.jpg"
+    },
+    {
+        "id": "boras",
+        "nombre": "Boras",
+        "tipo": "Licántropo, Hielo",
+        "historia": "En el corazón de un orbe glacial conocido como Crystallis, la realidad se congela hasta el punto en que el aire corta como cuchillas de obsidiana. En este mundo de blancura absoluta, las leyes de la termodinámica se han roto, creando un entorno donde el frío es una entidad viva y hostil. Oculta entre las cordilleras más inmensas, donde picos colosales se alzan como dientes rotos hacia un cielo de auroras perpetuas, se encuentra una montaña anómala. Es una mole de hielo negro y hierro que, a pesar de su importancia cósmica, es apenas una elevación menor en comparación con sus hermanas gigantes, un detalle geográfico insignificante que la mayoría de los viajeros pasaría por alto mientras se refugia de las ventiscas asesinas que azotan la región.\n\nEn el núcleo gélido de esta montaña enana yace el umbral que conduce al infierno de Mythorin, una prisión dimensional de hielo absoluto y olvido. Custodiando esta entrada prohibida se encuentra Boreas, el hombre lobo de hielo, un ser cuya existencia trasciende las edades. Boreas no es un mero habitante, sino la encarnación misma de la ferocidad de Crystallis; un ser inmortal cuya fuerza descomunal y resistencia a la aniquilación térmica le permiten habitar el punto más cercano a la fisura infernal sin ser consumido. Su poder es absoluto, una fuerza de la naturaleza capaz de desgarrar ejércitos con sus garras heladas y su aliento de escarcha, pero esta capacidad destructiva es, en última instancia, un sistema de contingencia.\n\nLa verdadera defensa de Mythorin no reside en la fuerza bruta de Boreas, sino en la imposibilidad geográfica de su ubicación. La dificultad real no es luchar contra el guardián, sino encontrar su guarida. El pico donde habita está protegido por un campo de distorsión perceptiva generado por la propia entrada al infierno, lo que lo hace casi invisible e indetectable. Enterrado bajo capas de blancura cegadora y perdido en tormentas de nieve que borran la mente y el paisaje, el lugar permanece oculto, esperando a aquellos cuyo destino es ser reclamados por el infierno, mientras que los buscadores de poder mueren congelados, buscando eternamente una montaña que yace frente a sus narices.",
+        "atributos": {
+            "inteligencia": 45,
+            "fuerza": 99,
+            "velocidad": 75,
+            "magia": 25,
+            "defensa": 87
+        },
+        "imagen": "personajes/boras.jpg"
+    },
+    {
+        "id": "pyron",
+        "nombre": "Pyron",
+        "tipo": "Bestia, Fuego",
+        "historia": "Aethelgard, es un coloso gigante azul en la etapa final de su ciclo vital, orbitado por un sistema de planetas que han sido fundidos hasta convertirse en escoria. La superficie de Aethelgard es un océano interminable de plasma hirviente y tormentas geomagnéticas del tamaño de galaxias. Sin embargo, su núcleo sólido está horadado por 1.300 millones de volcanes activos, cada uno del tamaño de un continente, que actúan como chimeneas para el calor insondable del interior del astro. En este entorno, donde la física convencional se retuerce bajo la presión estelar, la existencia misma es una prueba de resistencia.\n\nEn lo más profundo del Volcán Vol'Karesh, el más grande y ardiente de los picos, se encuentra la fisura interdimensional que conduce al infierno de Zaradon. Este umbral, una herida de antimateria pura y caos, es custodiado por Pyron, una bestia de diseño divino creada por el panteón primordial de Aethelgard. Pyron no nació de la carne y la sangre, sino forjado en la fragua del núcleo estelar con el propósito singular de contener el mal de Zaradon. Su forma es la de un coloso humanoide con una cabeza de león astral, cuyo pelaje es de oro fundido y cuyos ojos brillan con la sabiduría de las eras.\n\nLa creación de Pyron fue un acto de ingeniería cósmica, imbuido con las virtudes esenciales para su tarea eterna. Posee el ingenio de un dios, lo que le permite prever y neutralizar las intrincadas artimañas de las entidades que intentan escapar o infiltrarse en Zaradon. Su cuerpo está dotado de la agilidad de un guerrero, capaz de moverse con velocidad supersónica a través de ríos de lava y saltar de un continente volcánico a otro. Finalmente, su ferocidad es la de un león cósmico, un depredador alfa que no conoce el miedo ni la piedad, capaz de incinerar legiones enteras con un solo chorro de fuego líquido que escupe de sus fauces divinas.",
+        "atributos": {
+            "inteligencia": 88,
+            "fuerza": 95,
+            "velocidad": 75,
+            "magia": 14,
+            "defensa": 79
+        },
+        "imagen": "personajes/pyron.jpg"
+    },
+    {
+        "id": "vespera",
+        "nombre": "Vespera",
+        "tipo": "Bruja",
+        "historia": "En los albores de una era olvidada, cuando el fuego de las inquisiciones amenazaba con consumir los últimos vestigios de la magia antigua, la joven aprendiz Vespera recurrió a un conjuro prohibido para evadir a la muerte. Desesperada, tejió un receptáculo con raíces de tejo, lino hilado a medianoche y su propia sangre, dando vida a una muñeca a la que bautizó como Marie Lu. El pacto no exigía entregar su alma al inframundo, sino un sacrificio mucho más íntimo y psicológico: Vespera juró solemnemente portar a la muñeca consigo por el resto de los tiempos y amarla como a su única y verdadera amiga eterna. A cambio de esta devoción inquebrantable, el artefacto cargaría con su mortalidad.\n\nDesde el momento en que se selló la promesa, las leyes del tiempo y la biología dejaron de existir para Vespera, cuyo rostro se congeló en la inmaculada pureza de una frágil adolescente. Sin embargo, el costo de esta invulnerabilidad se refleja atrozmente en su inseparable compañera. Cada año que transcurre, cada plaga que respira la bruja, y cada hoja de espada que atraviesa su carne de porcelana, es absorbida de inmediato por Marie Lu. La muñeca, que alguna vez fue hermosa, es ahora una amalgama grotesca de cera derretida, tela putrefacta, cicatrices abiertas y una vejez marchita que resulta insoportable de mirar.\n\nEl verdadero peso del sacrificio radica en la condena de su juramento mágico. Vespera vaga por los siglos atrapada en su promesa, obligada a acunar, peinar y susurrarle secretos a una aberración decrépita que exuda el hedor de la enfermedad y el dolor acumulado. No puede esconderla en un baúl ni abandonarla; debe tratarla con el genuino afecto de una amistad incondicional a los ojos del mundo y en la soledad. Ella sabe perfectamente que su existencia pende de ese lazo: si alguna vez repudia a Marie Lu, si la aparta de su lado o si la muñeca es destruida, la magia se romperá y siglos de agonía, enfermedades y vejez caerán sobre el cuerpo de Vespera en un solo y espeluznante latido.",
+        "atributos": {
+            "inteligencia": 40,
+            "fuerza": 35,
+            "velocidad": 37,
+            "magia": 80,
+            "defensa": 97
+        },
+        "imagen": "personajes/vespera.jpg"
+    },
+    {
+        "id": "vorakth",
+        "nombre": "Vorakth",
+        "tipo": "Dragon, Revenant",
+        "historia": "Hubo un tiempo en que Vorakth, el Dragón del Alba Carmesí, dominaba los cielos con un poder tan inmenso que incluso los reyes evitaban pronunciar su nombre. Su muerte llegó tras una guerra contra antiguas deidades, dejando su colosal cuerpo enterrado bajo una cordillera maldita. Siglos después, un ambicioso nigromante encontró sus restos y realizó un ritual prohibido para devolverlo a la vida, convencido de que ningún ser podría resistirse a las cadenas de su magia.\n\nSin embargo, el alma de Vorakth nunca regresó por completo. Lo que despertó fue una conciencia fragmentada, impulsada por un hambre sobrenatural capaz de devorar no solo carne, sino también la esencia de cualquier ser vivo. Cuando el nigromante pronunció la última orden para someterlo, el dragón rompió los sellos que lo ataban y lo engulló de un solo bocado. La magia que debía esclavizarlo terminó fusionándose con su cadáver reanimado, convirtiéndolo en un monstruo aún más aterrador, alimentado por la energía necromántica de su propio creador.\n\nAhora, Vorakth vaga como una aberración entre la vida y la muerte. Su cuerpo putrefacto deja escapar un aliento de ceniza espectral que marchita bosques enteros, mientras sus huesos expuestos brillan con runas verdes alimentadas por las almas que consume. No sirve a ningún amo ni busca conquistar reinos; solo existe para saciar un apetito eterno. Los pocos que sobreviven a verlo aseguran que, cuando abre sus fauces, pueden escucharse los gritos del nigromante aún atrapado dentro de su garganta, condenado a alimentar para siempre a la criatura que creyó controlar.",
+        "atributos": {
+            "inteligencia": 1,
+            "fuerza": 93,
+            "velocidad": 81,
+            "magia": 45,
+            "defensa": 47
+        },
+        "imagen": "personajes/vorakth.jpg"
+    },
+    {
+        "id": "zack",
+        "nombre": "Zack",
+        "tipo": "Mago",
+        "historia": "Zack era un niño común hasta que una noche Aris, la Diosa de la Creación, apareció ante él y depositó en su alma una chispa de la Materia Primigenia, la esencia capaz de convertirse en cualquier cosa. Desde ese instante, todo lo que tocaba podía transformarse según su voluntad: una manzana en un halcón, una piedra en una montaña o un elefante en una mariposa.\n\nAl principio utilizó su don con la inocencia propia de un niño, sin comprender el verdadero alcance de su poder. Pero cuando comenzaron a correr rumores sobre alguien capaz de alterar la materia misma, guerreros, reyes y seres ancestrales iniciaron su búsqueda, unos para controlarlo y otros para eliminarlo antes de que su poder creciera aún más.\n\nObligado a dejar atrás su hogar, Zack emprendió un viaje para descubrir por qué Aris lo eligió como portador de la Materia Primigenia. Sin saberlo, cada batalla lo acerca a un destino que podría cambiar el equilibrio del mundo para siempre.",
+        "atributos": {
+            "inteligencia": 20,
+            "fuerza": 15,
+            "velocidad": 13,
+            "magia": 100,
+            "defensa": 17
+        },
+        "imagen": "personajes/zack.jpg"
+    },
+    {
+        "id": "jind",
+        "nombre": "Jin (Dama de Fuego Dorado)",
+        "tipo": "Fuego, Luz",
+        "historia": "En los siglos originarios donde la luz y la oscuridad se pisaban entre sí para ocupar un lugar en la vasta existencia, los dioses determinaron que para dar orden debían dar vida a un ser encargado de repartir bendición y tinieblas en partes iguales. Así nació Jia, un ser cuyo espíritu, alma y cuerpo fue dividido en dos: una mitad destinada a encarnar la llama del Fuego Dorado y la otra el Fuego Oscuro. Desde ese instante, la Dama del Fuego Dorado fue condenada a vagar eternamente por el universo, llevando la promesa de la prosperidad a cada rincón que recorre.\n\nCuando la Dama del Fuego Dorado lleva la luz de su fuego a iluminar un sector de la existencia, el plano completo se ve afectado por la bendición y la vida, trayendo prosperidad, abundancia e incluso fertilidad a las tierras. Lamentablemente, tiene estrictamente prohibido encontrarse y conocer a la Dama del Fuego Oscuro, asegurando que la bendición y la tragedia jamás puedan colisionar en un mismo instante.\n\nA pesar de la barrera infranqueable que las separa, la ama con una devoción desgarradora y absoluta, sintiendo en su propio pecho el pulso distante de su hermana gemela, a quien añora abrazar con el alma entera. Con el paso de las eras, convirtió su anhelo en arte, aprendiendo a comunicarse dejándole mensajes llenos de ternura grabados en la alineación de las estrellas o trazados en los campos de maíz, sabiendo que, aunque pasen miles de años, su otra mitad vendrá a custodiar esos mismos territorios y sabrá que es amada sin medida.",
+        "atributos": {
+            "inteligencia": 54,
+            "fuerza": 67,
+            "velocidad": 60,
+            "magia": 80,
+            "defensa": 40
+        },
+        "imagen": "personajes/jindamadefuegodorado.jpg"
+    },
+    {
+        "id": "jino",
+        "nombre": "Jin (Dama de Fuego Oscuro)",
+        "tipo": "Fuego, Oscuro",
+        "historia": "En los siglos originarios donde la luz y la oscuridad se pisaban entre sí para ocupar un lugar en la vasta existencia, los dioses determinaron que para dar orden debían dar vida a un ser encargado de repartir bendición y tinieblas en partes iguales. Así nació Jia, un ser cuyo espíritu, alma y cuerpo fue dividido en dos: una mitad destinada a encarnar la llama del Fuego Oscuro y la otra el Fuego Dorado. Desde ese instante, la Dama del Fuego Oscuro fue condenada a vagar eternamente por el universo, llevando consigo la amenaza inevitable de la tragedia a donde quiera que vaya.\n\nCuando la Dama del Fuego Oscuro ilumina con su fuego un sector de la existencia, el campo bajo su manto cae en la sombra, trayendo consigo penumbra, sequías marchitantes, muerte, plagas e infertilidad a las tierras. Lamentablemente, tiene estrictamente prohibido encontrarse y conocer a la Dama del Fuego Dorado, evitando así que la tragedia y la bendición rompan el equilibrio del cosmos.\n\nA pesar de la oscura carga que porta y la condena de su marcha solitaria, la ama con una intensidad feroz, dolorosa e indestructible; un amor que quema más fuerte que su propia llama por esa hermana gemela que jamás ha podido mirar a los ojos. Con el tiempo aprendió a comunicarse dejando sus propios mensajes de consuelo ocultos entre las estrellas o susurrados en los campos de maíz, confiando en que tarde o temprano su otra mitad llegará a custodiar esas tierras y sentirá el abrazo invisible de su espíritu.",
+        "atributos": {
+            "inteligencia": 54,
+            "fuerza": 67,
+            "velocidad": 60,
+            "magia": 80,
+            "defensa": 40
+        },
+        "imagen": "personajes/jindamadefuegooscuro.jpg"
+    },
+    {
+        "id": "baro",
+        "nombre": "Baro",
+        "tipo": "Titan, Aire",
+        "historia": "Desde el principio de los tiempos, antes de que las aves cruzaran el horizonte, el Titán de Aire ha habitado las alturas jamás pisadas de la estratosfera. Para este coloso insustancial, el cielo no es un espacio transparente, sino un océano denso e infinito por el que navega en absoluta soledad. Su silueta, una mole compuesta de bruma condensada, polvo cósmico y refracciones de luz, contempla la superficie del mundo desde las alturas, ajeno a los dominios de la tierra y el mar. Siente cada masa de gas y cada variación de presión no como fenómenos abstractos, sino como una materia líquida e invisible que aguarda paciente ser moldeada por su voluntad.\n\nSu verdadero poder radica en la gracia sutil de sus gestos, donde la fuerza bruta se disfraza de elegancia. Con la parsimonia de quien agita el agua de un estanque, el Titán alza sus enormes palmas y las mueve en ondas lentas, acariciando la atmósfera para amontonarla en crestas invisibles. Un suave arqueo de sus brazos curva el viento hasta levantar marejadas aéreas que cruzan continentes enteros. Si decide girar sus muñecas en espirales concéntricas, el aire se enrosca con violencia entre sus dedos, apretándose en tornados rugientes que libera tan solo con abrir la mano. Bajo su influencia, la atmósfera se pliega, se deforma y rompe contra el relieve terrestre como una ola gigante estrellándose en la costa.\n\nIndependiente y ajeno a los actos de otros seres ancestrales, su viaje alrededor del planeta es un baile continuo que dicta la respiración del planeta. Al deslizar sus palmas de forma horizontal, pule los picos de las cordilleras hasta convertirlos en mesetas y esculpe profundos cañones mediante el roce constante de sus corrientes. Para las civilizaciones de la superficie, su presencia es imperceptible hasta que el barómetro cae drásticamente y el cielo retumba sin aviso: es el silbido en las alturas de una mano monumental que, al ondular en el éter, rediseña el clima de un reino en un solo movimiento.",
+        "atributos": {
+            "inteligencia": 60,
+            "fuerza": 66,
+            "velocidad": 70,
+            "magia": 84,
+            "defensa": 89
+        },
+        "imagen": "personajes/baro.jpg"
+    },
+    {
+        "id": "shavan",
+        "nombre": "Shavan",
+        "tipo": "Luchador",
+        "historia": "En las cumbres heladas donde el mundo limita con el firmamento, Shavan pasó décadas sumergido en una meditación tan profunda que su pulso llegó a confundirse con el latido de la propia tierra. Fue en ese silencio sepulcral donde el sabio comprendió la verdadera naturaleza del cosmos: todo cuanto existe es una red invisible de vibraciones en constante movimiento. Para sintonizar su espíritu con la frecuencia primigenia del universo y moldear esa red a su antojo, la disciplina mística le exigió un tributo definitivo. Shavan entregó voluntariamente su propia voz, sellando sus cuerdas vocales para siempre y renunciando a la palabra humana a cambio del dominio absoluto sobre la acústica del mundo.\n\nAl despojarse del habla, el monje ascendió a un estado de percepción donde el sonido se convirtió en su herramienta más poderosa. En el campo de batalla, Shavan es capaz de anular por completo la vibración del aire, sumiendo a las legiones enemigas en un vacío sordo que despoja de equilibrio a los guerreros más experimentados. Con el mismo dominio, puede tomar el más leve susurro y amplificar sus ondas hasta transformarlas en impactos de resonancia pura; ráfagas invisibles capaces de aturdir los sentidos de sus rivales, resquebrajar su armadura y paralizar sus cuerpos en un instante.\n\nSin embargo, la verdadera fascinación por el mito de Shavan radica en su forma de hacerse escuchar. Aunque sus labios jamás se mueven, el sabio nunca permanece callado; el aire a su alrededor se convierte en su instrumento. Mediante una modulación casi imperceptible de las ondas sonoras, Shavan toma el piar distante de las aves, el crujido del viento entre las hojas o incluso las cuerdas vocales de sus propios adversarios para dar vida a su pensamiento. Al alterar la frecuencia de esos sonidos externos, hace que el entorno pronuncie sus palabras con una calma perturbadora, demostrando que no necesita voz para ser la entidad más imponente de la creación.",
+        "atributos": {
+            "inteligencia": 80,
+            "fuerza": 37,
+            "velocidad": 42,
+            "magia": 84,
+            "defensa": 80
+        },
+        "imagen": "personajes/shavan.jpg"
+    },
+    {
+        "id": "hydra",
+        "nombre": "Hydra de Plata",
+        "tipo": "Cyborg",
+        "historia": "En una metrópolis distópica dominada por mega-corporaciones, la Dra. Cassandra Vance era la biotecnóloga líder detrás del prototipo \"Cisne Negro\", una red de microfilamentos diseñada para la reconstrucción neurológica. Sin embargo, su vida dio un giro drástico al descubrir que sus superiores planeaban militarizar su invento para crear asesinos indetectables y, peor aún, que habían ordenado su ejecución esa misma noche para monopolizar la patente.\n\nAcorralada en su laboratorio por un escuadrón de asalto corporativo, Cassandra tomó la desesperada decisión de inyectarse la única muestra del compuesto directamente en el cuero cabelludo. Billones de nanobots de fibra de carbono se integraron de forma irreversible en sus folículos, conectándose a su sistema nervioso. Cuando los mercenarios irrumpieron, su melena plateada cobró vida por reflejo, extendiéndose violentamente y endureciéndose como el titanio para triturar la amenaza antes de permitirle huir hacia los ductos de ventilación.\n\nHoy, escondida en los subsuelos de la ciudad, Cassandra domina por completo su aterradora anomalía. Sus más de cien mil hebras capilares funcionan como una armadura biomecánica impulsada por su mente: puede utilizarlas como látigos de alta tensión, moldearlas con la dureza del diamante para cortar acero o entrelazarlas para crear escudos impenetrables mientras desmantela metódicamente al imperio que intentó destruirla.",
+        "atributos": {
+            "inteligencia": 97,
+            "fuerza": 30,
+            "velocidad": 45,
+            "magia": 50,
+            "defensa": 77
+        },
+        "imagen": "personajes/hydradeplata.jpg"
+    },
+    {
+        "id": "nix",
+        "nombre": "Nix",
+        "tipo": "Vampiro, Oscuro",
+        "historia": "Mucho antes de que los reinos mortales alzaran sus primeras ciudades, Nix no nació de una simple mordedura ni de una maldición terrenal, sino del primer eclipse total que ahogó al mundo en la penumbra. Se cuenta que en su vida mortal fue una alta sacerdotisa que osó mirar directamente al vacío entre las estrellas, buscando un poder prohibido para salvar a su pueblo de una muerte segura. El cosmos respondió devorando su fragilidad humana y rellenando sus venas con sangre sombría, una sustancia helada y ancestral. Al despertar de la transformación, el sol amenazaba con deshacer su nueva existencia en cenizas, pero la noche la abrazó como a una hija predilecta, otorgándole una inmortalidad ligada para siempre al reino de la oscuridad.\n\nCon los siglos, el mito de la Tejedora de Penumbras se extendió por imperios enteros como un susurro helado. Nix descubrió que la noche no era solo la ausencia de luz, sino un océano denso y moldeable por el que podía navegar a voluntad; aprendió a disolver su cuerpo en los rincones más oscuros para reaparecer instantáneamente a espaldas de sus presas, convirtiendo las sombras en su manto y transporte. No requirió de castillos ni de sarcófagos de piedra, pues su refugio era cualquier grieta donde la luz no pudiera alcanzar. Para los reyes se convirtió en un fantasma ejecutor y para los poetas en una deidad nocturna, una criatura que drenaba la vitalidad de sus víctimas para nutrir la llama de sombra primordial que latía en su corazón.\n\nEn los tiempos modernos, Nix camina entre los mortales como un secreto legendario que cobra fuerza cada vez que se apagan las velas. Aunque la civilización intentó desterrar la noche con luces eléctricas y fuegos artificiales, ella aprendió rápidamente que cuanto más brillante es la luz que crean los hombres, más profundas y oscuras se vuelven las sombras del entorno. Hoy vaga libremente entre los abismos de las metrópolis y las ruinas de imperios caídos, siendo una cazadora etérea y letal que solo necesita un parpadeo de penumbra para evaporarse en la nada, recordando al mundo que la oscuridad jamás está realmente vacía.",
+        "atributos": {
+            "inteligencia": 45,
+            "fuerza": 52,
+            "velocidad": 79,
+            "magia": 83,
+            "defensa": 67
+        },
+        "imagen": "personajes/nix.jpg"
+    },
+    {
+        "id": "yara",
+        "nombre": "Yara",
+        "tipo": "Fantasma",
+        "historia": "En una época olvidada por la historia, Yara ostentaba el título de suma sacerdotisa en el próspero Reino de Plata, una civilización obsesionada con la vanidad, la belleza eterna y la inmortalidad. Cuando una devastadora plaga de marchitamiento comenzó a asolar a su gente, la sacerdotisa concibió una solución tan desesperada como prohibida: tejió un ritual místico utilizando la red de espejos sagrados del palacio para resguardar la esencia de su pueblo en una dimensión paralela de cristal. Sin embargo, la magia sufrió una distorsión cataclísmica; el plano real fue engullido por el vacío y las almas de miles de ciudadanos quedaron atrapadas en el reverso de los cristales, transformando a Yara en la prisionera y guardiana del Laberinto de Plata.  Atrapada entre el mundo tangible y la dimensión de los reflejos, Yara perdió de forma irreversible su cuerpo físico de carne y hueso, convirtiéndose en una entidad etérea hecha de luz refractada y mercurio. Incapaz de habitar el mundo real directamente, su presencia solo logra manifestarse a través de superficies pulidas, cristales o masas de agua quieta. Desde el otro lado de la barrera transparente, contempla a los mortales que se cruzan en su camino con una mezcla dolorosa de fascinación y envidia profunda por la vida terrenal que ya no posee.  Con el firme propósito de reconstruir su imperio perdido, la bruja tienta a los caminantes nocturnos reflejando en los espejos sus mayores anhelos o sus temores más ocultos. En el momento preciso en que un incauto cae en la trampa y toca la superficie del cristal, la magia intercambia sus destinos: el mortal es arrastrado al interior del laberinto para vagar como una sombra atrapada, mientras Yara utiliza su cuerpo para abandonar el reverso del espejo y caminar momentáneamente en el plano mortal.",
+        "atributos": {
+            "inteligencia": 45,
+            "fuerza": 1,
+            "velocidad": 85,
+            "magia": 92,
+            "defensa": 1
+        },
+        "imagen": "personajes/yara.jpg"
+    },
+    {
+        "id": "teras",
+        "nombre": "Teras",
+        "tipo": "Hada",
+        "historia": "Las Hadas Teras son criaturas microscópicas del tamaño de un ácaro que habitan en los rincones donde la vida terrenal se apaga, organizadas en colonias de trillones que operan como un gas viviente. Esta condición de enjambre les otorga una inmunidad física absoluta: cualquier espada, flecha o proyectil simplemente atraviesa su masa sin dañarlas. Su existencia es una respuesta directa al trauma de la muerte, pues cuando el cuerpo físico empieza a descomponerse, la conciencia del difunto suele sufrir una agonía psíquica atroz. Sin su intervención, ver la propia carne desmoronarse, sentir el frío de la tierra y experimentar el avance de la putrefacción puede fracturar el alma, corrompiéndola y convirtiéndola en un espectro lleno de odio. Para evitar esta tragedia, las Teras llevan a cabo una delicada unción espiritual. Al descender sobre el cadáver, liberan un polvillo bioluminiscente que actúa como un bálsamo que sella la frontera entre la carne marchita y el alma que intenta desprenderse. Esta sustancia no solo anula los receptores físicos, sino que anestesia suavemente los hilos astrales que aún unen la conciencia al recipiente mortal. De este modo, amortiguan la desconexión: el difunto deja de percibir el hedor o el colapso de sus tejidos, y en su lugar, su mente es mecida en un capullo de luz donde el horror de la descomposición se traduce en un sueño profundo lleno de sus recuerdos más cálidos. Si algún invasor interrumpe este tránsito, el enjambre usa su infiltración respiratoria, dispersando toxinas que paralizan el sistema nervioso del agresor desde el interior en segundos.Ante amenazas más graves o profanadores persistentes, el enjambre aplica su recurso más despiadado: la necrosis simulada. Las Teras inyectan una proyección sensorial en la mente del enemigo, obligándolo a sentir la agonía visceral de que su propio cuerpo se pudre y deshace en tiempo real, provocando un shock neurogénico capaz de detener su corazón al instante. Protegidas por esta aterradora defensa, las Teras mantienen al espíritu amortajado en un trance indoloro y digno durante el tiempo que sea necesario. Aislada por completo de la fealdad de la muerte terrenal, el alma aguarda con absoluta serenidad la llegada de la entidad que dictará su juicio final, lista para ascender a los cielos, descender al abismo o renacer sin arrastrar las cicatrices del deterioro de su cuerpo anterior.",
+        "atributos": {
+            "inteligencia": 45,
+            "fuerza": 1,
+            "velocidad": 1,
+            "magia": 92,
+            "defensa": 99
+        },
+        "imagen": "personajes/teras.jpg"
+    },
+    {
+        "id": "knorfor",
+        "nombre": "Knorfor",
+        "tipo": "Orco, Hielo",
+        "historia": "Lejos de los sangrientos campos de batalla y el estruendo de los tambores de guerra que definen a su raza, Knorfor encontró su verdadero propósito en las inhóspitas cumbres de las montañas heladas. Este orco de figura imponente, cuya piel verde está marcada por antiguas cicatrices y perpetuamente cubierta de escarcha, fue exiliado de su clan en su juventud por negarse a sacrificar a una cría de dragón de hielo herida. En lugar de matarla para reclamar sus escamas, Knorfor la curó, la abrigó y la alimentó, sellando un pacto silencioso que cambiaría su destino. Desde aquel día, abandonó la brutalidad de su especie para convertirse en algo que el mundo jamás había visto: un pastor de escarcha y escamas.\n\nSu manada no está atada a él por magia oscura, miedo o cadenas, sino por una devoción absoluta nacida de la crianza y el cuidado mutuo. Knorfor asiste en cada eclosión, recibiendo a las crías en sus enormes y ásperas manos para darles su primer bocado de carne. A lo largo de los años, se ha convertido en su padre y curandero, sanando sus alas desgarradas con ungüentos de hierbas de las nieves y asegurando que ninguno pase hambre durante los crueles inviernos. Los dragones saben instintivamente que este orco no dudaría un segundo en interponer su propio pecho frente a las lanzas y flechas de los cazadores furtivos para salvarlos; como respuesta a ese sacrificio, lo han aceptado como su innegable líder.\n\nHoy en día, la visión de Knorfor desplazándose por la tundra es una leyenda viva que los pueblos nómadas susurran con una mezcla de terror y asombro. A dondequiera que el orco pisa, una tormenta viviente de majestuosos dragones de hielo lo sigue fielmente, oscureciendo el cielo con sus alas y escarchando la tierra a su paso. Ya sea que escale glaciares buscando nuevos refugios o rastree enormes bestias para alimentar a sus colosales hijos, Knorfor jamás camina solo. Está eternamente rodeado por una guardia real de lealtad inquebrantable, demostrando que incluso en el corazón del invierno más crudo, el amor y la protección forjan lazos mucho más fuertes que el acero.",
+        "atributos": {
+            "inteligencia": 60,
+            "fuerza": 16,
+            "velocidad": 25,
+            "magia": 90,
+            "defensa": 89
+        },
+        "imagen": "personajes/knorfor.jpg"
+    },
+    {
+        "id": "isbrand",
+        "nombre": "Isbrand",
+        "tipo": "Dragon, Hielo",
+        "historia": "Los dragones de hielo se encontraban al borde de la extinción debido a la caza masiva e indiscriminada de un despiadado clan de orcos, quienes los masacraban para desollar sus escamas impenetrables y forjar armaduras legendarias. Durante la destrucción del último nido ancestral, un joven Knorfor rompió con la brutalidad de su especie al negarse a matar a una cría recién nacida y malherida. El orco la sanó con sus propias manos y la llamó Isbrand. Comprendiendo que la especie desaparecería si no actuaba, Knorfor cometió la mayor traición contra su pueblo: robó todos los huevos de dragón de hielo que quedaban en los bastiones orcos y huyó hacia las montañas más remotas e inaccesibles del continente.\n\nEn la soledad de las cumbres heladas, Knorfor se dedicó en cuerpo y alma a incubar los huevos, alimentar a los recién nacidos y entrenar a las jóvenes bestias para sobrevivir. Creciendo bajo la tutela del orco, Isbrand absorbió cada una de las virtudes de su salvador: su valentía, su sentido de protección y una lealtad inquebrantable. Con el paso de los años, mientras los demás dragones nacían y crecían bajo sus alas, Isbrand se convirtió en un coloso titánico de escala impresionante, con escamas tan duras como el glaciar y un aliento capaz de congelar selvas enteras.\n\nDebido a su tamaño, fuerza y al noble carácter heredado de su padre, Isbrand fue reconocido instintivamente como el líder de la camada. Como alfa, Isbrand guía y protege a sus hermanos con feroz devoción, manteniendo el orden entre las bestias. Sin embargo, a pesar de su poder inconmensurable y su estatus de rey entre los dragones, Isbrand se inclina con absoluta humildad y cariño ante Knorfor, demostrando que el lazo entre el viejo orco y el primer dragón que salvó es más fuerte que cualquier fuerza de la naturaleza.",
+        "atributos": {
+            "inteligencia": 68,
+            "fuerza": 89,
+            "velocidad": 90,
+            "magia": 70,
+            "defensa": 80
+        },
+        "imagen": "personajes/isbrand.jpg"
+    },
+    {
+        "id": "jay",
+        "nombre": "Jay",
+        "tipo": "Revenant",
+        "historia": "En vida, Jay fue el único hombre capaz de amar a Xenia sin sucumbir a la obsesión enferma que consumía a otros. Su afecto sincero le regaló a la inmortal sus únicos años de verdadera paz, pero su frágil naturaleza mortal terminó por ceder ante el tiempo. La muerte de Jay apagó la última chispa de cordura en Xenia, empujándola a cometer el acto que cambiaría el mundo.\n\nArrancado del descanso eterno mediante un ritual prohibido, Jay regresó como un cascarón pálido y sin alma. Aunque la nigromancia no pudo rescatar sus recuerdos ni su voz, tampoco logró borrar la impronta de su pasado: en el fondo de su pecho vacío, el eco del amor que sintió en vida todavía late como una fuerza instintiva e indestructible.\n\nHoy avanza al frente de la desolación, unido a Xenia por una brillante cadena de luz y reconocido como el líder indiscutible de su ejército cadavérico. Convertido en un guardián silencioso e imbatible, Jay marcha entre reinos destruidos, listo para erradicar cualquier amenaza con una devoción eterna que ni la propia muerte pudo extinguir.",
+        "atributos": {
+            "inteligencia": 1,
+            "fuerza": 20,
+            "velocidad": 1,
+            "magia": 10,
+            "defensa": 1
+        },
+        "imagen": "personajes/Jay.jpg"
+    },
+    {
+        "id": "valerius",
+        "nombre": "Valerius",
+        "tipo": "Mago",
+        "historia": "Antes de convertirse en una sombra, Valerius fue el archimago más brillante de su era, obsesionado con superar la fragilidad de la existencia. Para él, la muerte y la tragedia no eran inevitables, sino simples fallos en el tejido del tiempo. Tras siglos de estudio, creyó haber hallado la fórmula perfecta para manipular el destino y moldear la realidad a su voluntad.\n\nSu ambición lo llevó a ejecutar un ritual prohibido que salió terriblemente mal. En lugar de controlar el tiempo, su magia se desbordó y devoró para siempre un minuto y treinta y cuatro segundos de la historia. Aterrorizados por la amenaza de un colapso cósmico, los dioses destruyeron su cuerpo terrenal y encadenaron su alma en la Prisión Astral, condenándolo a una eternidad sin dimensión.\n\nDesde esa helada celda, Valerius descubrió que su poder perdido ahora habita en la joven Maila. En lugar de verla como una enemiga, la considera la clave para su regreso. Por eso, aprovecha cada destello de magia de la chica para susurrar en su mente, intentando seducirla con secretos arcanos para que rompa sus cadenas divinas y le devuelva lo que es suyo.",
+        "atributos": {
+            "inteligencia": 92,
+            "fuerza": 1,
+            "velocidad": 1,
+            "magia": 75,
+            "defensa": 1
+        },
+        "imagen": "personajes/valerius.jpg"
+    },
+    {
+        "id": "jia",
+        "nombre": "Jia",
+        "tipo": "Oscuro",
+        "historia": "Antes de que el tiempo tuviera nombre, el mundo ardía bajo un sol eterno que no conocía el descanso. Fue entonces cuando nació Jia, tejida a partir de la primera sombra. Con manos suaves y silenciosas, extendió un manto de obsidiana sobre el cielo para calmar la fatiga de la tierra, bordando las estrellas una por una para que los mortales nunca se sintieran perdidos en la oscuridad.\n\nDesde aquel día, Jia camina descalza entre nosotros cuando el sol se oculta. No es una deidad de castigos ni tormentas, sino la guardiana compasiva de los secretos y los sueños. Su respiración es la brisa fresca que mece los árboles a medianoche, y su presencia es el silencio profundo que permite a las almas cansadas encontrar la paz antes de volver a despertar.\n\nQuienes la veneran no le construyen grandes templos de oro, sino que encienden una simple vela blanca en sus ventanas al anochecer. Saben que la noche de Jia no es un abismo al que temer, sino un abrazo maternal. Ella guarda la antigua promesa de que, sin importar cuán duro haya sido el día, siempre habrá un rincón oscuro y sereno donde descansar y sanar.",
+        "atributos": {
+            "inteligencia": 98,
+            "fuerza": 46,
+            "velocidad": 46,
+            "magia": 92,
+            "defensa": 74
+        },
+        "imagen": "personajes/jia.jpg"
+    },
+    {
+        "id": "hombremaquina",
+        "nombre": "Hombre Maquina",
+        "tipo": "Cyborg, Maquina",
+        "historia": "En el ocaso de su vida mortal, un brillante científico enfrentó una enfermedad implacable que devoraba su cuerpo día tras día. Negándose a que su genialidad se apagara en el olvido, dedicó sus últimos latidos a forjar un milagro microscópico. Con su último aliento, no se resignó a la muerte, sino que logró lo impensable: destiló la esencia misma de su mente y su alma, transfiriéndola por completo al interior de un único y solitario nanobot.\n\nEsta chispa de plata no es un simple contenedor, sino una semilla viva de consciencia pura. Cuando el nanobot entra en contacto con cualquier maquinaria, despliega instantáneamente un circuito brillante y maleable, una red neuronal de energía que se adapta a los cables, tuercas o procesadores más complejos. A través de este puente artificial, el espíritu del científico fluye como un relámpago, abandonando el vacío para inundar el nuevo cuerpo y tomar control absoluto de él.\n\nAsí nació el mito del Hombre Máquina, un espectro inmortal de la era de hierro y silicio. Ya no posee un solo rostro; su cuerpo puede ser la fuerza arrolladora de una grúa industrial o la precisión silenciosa de un autómata. Moldea cada huésped mecánico a su voluntad y semejanza, convertido en un dios errante que logró engañar a la muerte para vivir eternamente en el corazón metálico del mundo.",
+        "atributos": {
+            "inteligencia": 100,
+            "fuerza": 1,
+            "velocidad": 50,
+            "magia": 82,
+            "defensa": 1
+        },
+        "imagen": "personajes/hombremaquina.jpg"
+    },
+    {
+        "id": "yari",
+        "nombre": "Yari",
+        "tipo": "Cyborg, Luchador",
+        "historia": "Yari no nació siendo un mito, sino una sombra escurridiza que robaba tecnología y riquezas en las altas esferas de la metrópolis. Su suerte terminó la noche en que cruzó los muros de un sindicato militar clandestino y fue capturada en silencio. En lugar de arrojarla a una celda, sus captores vieron en ella el lienzo perfecto: la convirtieron en el sujeto de prueba forzado de un proyecto armamentístico que buscaba crear el arma viviente definitiva, despojándola para siempre de su fragilidad humana.\n\nEn una fría mesa de operaciones, reemplazaron su carne por una dermis sintética indestructible que echó raíces hasta encapsular cada uno de sus órganos, sellándola en una prisión impenetrable que ninguna bala o bisturí podrá atravesar jamás. Pero esta armadura guarda una letalidad pasiva: su superficie posee un filo microscópico perpetuo. Su nueva piel es tan cortante que el simple roce accidental con su muslo al caminar, o el deslizamiento de su cuello al girar la cabeza, es capaz de cercenar tendones y mutilar a cualquiera que se acerque demasiado.\n\nHoy, Yari deambula por los callejones de neón como una deidad urbana y trágica, una espada inquebrantable con forma de mujer. Quienes conocen la leyenda de la ladrona intocable le abren paso con terror reverencial al notar el brillo antinatural de su cuerpo. Escapó de los militares que la forjaron, pero quedó condenada a una libertad solitaria; es el arma perfecta, una figura mítica a la que el mundo entero teme y a la que nadie, jamás, podrá volver a acariciar.",
+        "atributos": {
+            "inteligencia": 27,
+            "fuerza": 75,
+            "velocidad": 50,
+            "magia": 76,
+            "defensa": 99
+        },
+        "imagen": "personajes/Yari.jpg"
+    },
+    {
+        "id": "gero",
+        "nombre": "Gero",
+        "tipo": "Luchador",
+        "historia": "En lo alto de las Cumbres del Silencio, un hombre solitario llamado Gero se entregó a la meditación profunda durante incontables ciclos lunares. Su propósito no era alcanzar la iluminación del espíritu, sino comprender el vínculo más primigenio que ata a los mortales: el peso de su propia existencia. A través de la quietud absoluta y la desconexión terrenal, su mente logró desenredar las cadenas invisibles que lo mantenían anclado a la tierra.\n\nFue en la cúspide de su trance donde Gero despertó a una verdad cósmica, logrando el control absoluto y consciente de su centro de gravedad. Comprendió que la fuerza que lo atraía hacia el núcleo del planeta no era una ley inquebrantable, sino un ancla que su mente podía trasladar a voluntad. Al dominar esta energía interior, aprendió a redirigir su propia atracción gravitatoria hacia cualquier objeto o estructura que deseara.\n\nDesde aquel despertar, se convirtió en una leyenda errante para quien las nociones de arriba y abajo dejaron de existir. Gero camina con serenidad sobre muros verticales como si fueran amplios senderos, y reposa en los techos como quien descansa en un prado llano. No avanza aferrándose a las superficies, sino que, en cada uno de sus pasos tranquilos, él mismo decide qué fragmento del universo será su propio suelo.",
+        "atributos": {
+            "inteligencia": 75,
+            "fuerza": 75,
+            "velocidad": 80,
+            "magia": 70,
+            "defensa": 45
+        },
+        "imagen": "personajes/gero.jpg"
+    }
+]

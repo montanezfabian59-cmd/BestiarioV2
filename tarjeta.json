@@ -1,0 +1,11 @@
+[
+    {
+        "idTarjeta": "tarjeta_1787071824855",
+        "propietarioId": "xenia",
+        "tipo": "Inmunidad",
+        "nombre": "Prueba",
+        "descripcion": "Prueab",
+        "efectos": [],
+        "excepciones": []
+    }
+]
