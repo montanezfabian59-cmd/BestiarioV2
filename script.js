@@ -39,6 +39,7 @@ function cambiarSubpestana(subpestana) {
 }
 let personajes = [];
 let tarjetasGuardadas = [];
+let historiasGuardadas = [];
 
 async function cargarTarjetas() {
     try {
@@ -52,6 +53,157 @@ async function cargarTarjetas() {
     }
 }
 cargarTarjetas();
+
+async function cargarHistorias() {
+    try {
+        const respuesta = await fetch("historia.json");
+        if (respuesta.ok) {
+            historiasGuardadas = await respuesta.json();
+            mostrarHistorias(historiasGuardadas);
+        }
+    } catch (error) {
+        console.warn("No hay historias previas o hubo un error al cargar historia.json");
+    }
+}
+cargarHistorias();
+let personajesLigadosNuevaHistoria = [];
+
+function abrirModalNuevaHistoria() {
+    document.getElementById('titulo-nueva-historia').value = '';
+    document.getElementById('texto-nueva-historia').value = '';
+    personajesLigadosNuevaHistoria = [];
+    actualizarPersonajesLigadosHistoria();
+    document.getElementById('modal-nueva-historia').style.display = 'block';
+}
+
+function cerrarModalNuevaHistoria() {
+    document.getElementById('modal-nueva-historia').style.display = 'none';
+}
+
+function abrirSelectorPersonajesHistoria() {
+    const grid = document.getElementById('grid-selector-personajes-historia');
+    grid.innerHTML = '';
+    if (!personajes || personajes.length === 0) {
+        grid.innerHTML = '<p style="color: #ff8888; text-align: center; grid-column: 1/-1;">No hay personajes cargados disponibles.</p>';
+    } else {
+        personajes.forEach(personaje => {
+            const div = document.createElement('div');
+            div.className = 'tarjeta-personaje tarjeta-mini';
+            div.style.cursor = 'pointer';
+            div.onclick = () => {
+                if(!personajesLigadosNuevaHistoria.includes(personaje.id)) {
+                    personajesLigadosNuevaHistoria.push(personaje.id);
+                    actualizarPersonajesLigadosHistoria();
+                }
+                cerrarSelectorPersonajesHistoria();
+            };
+            div.innerHTML = `<h3 class="titulo-carta">${personaje.nombre}</h3><img src="${personaje.imagen}" class="imagen-personaje">`;
+            grid.appendChild(div);
+        });
+    }
+    const modalSelector = document.getElementById('modal-selector-personajes-historia');
+    modalSelector.style.display = 'block';
+    modalSelector.style.zIndex = '2000';
+}
+
+function cerrarSelectorPersonajesHistoria() {
+    document.getElementById('modal-selector-personajes-historia').style.display = 'none';
+}
+
+function actualizarPersonajesLigadosHistoria() {
+    const contenedor = document.getElementById('contenedor-personajes-ligados');
+    contenedor.innerHTML = '';
+    personajesLigadosNuevaHistoria.forEach(id => {
+        const p = personajes.find(x => x.id === id);
+        if(p) {
+            const div = document.createElement('div');
+            div.className = 'tarjeta-personaje tarjeta-mini';
+            div.innerHTML = `<h3 class="titulo-carta">${p.nombre}</h3><img src="${p.imagen}" class="imagen-personaje">`;
+            contenedor.appendChild(div);
+        }
+    });
+}
+function guardarNuevaHistoria() {
+    const titulo = document.getElementById('titulo-nueva-historia').value.trim();
+    const texto = document.getElementById('texto-nueva-historia').value.trim();
+    if (!titulo || !texto) return alert("Por favor, completa el título y la historia.");
+
+    const nombreImagen = titulo.toLowerCase().replace(/\s+/g, '');
+    const nuevaHistoria = {
+        id: "H_" + Date.now(),
+        titulo: titulo,
+        texto: texto,
+        imagen: "historia/" + nombreImagen + ".jpg",
+        personajesIds: personajesLigadosNuevaHistoria
+    };
+
+    historiasGuardadas.push(nuevaHistoria);
+    mostrarHistorias(historiasGuardadas);
+    
+    const blob = new Blob([JSON.stringify(historiasGuardadas, null, 4)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "historia.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    cerrarModalNuevaHistoria();
+}
+function mostrarHistorias(lista) {
+    const grid = document.getElementById('grid-historia');
+    if(!grid) return;
+    grid.innerHTML = '';
+    lista.forEach(historia => {
+        let nombresPersonajes = "";
+        if (historia.personajesIds && historia.personajesIds.length > 0) {
+            const nombres = historia.personajesIds.map(id => {
+                const p = personajes.find(x => x.id === id);
+                return p ? p.nombre : null;
+            }).filter(n => n !== null);
+            nombresPersonajes = nombres.join(", ");
+        } else {
+            nombresPersonajes = "Sin personajes";
+        }
+
+        const div = document.createElement('div');
+        div.className = 'tarjeta-personaje';
+        div.style.cursor = 'pointer';
+        div.onclick = () => abrirModalVerHistoria(historia);
+        div.innerHTML = `
+            <h3 class="titulo-carta">${historia.titulo}</h3>
+            <img src="${historia.imagen || ''}" alt="${historia.titulo}" class="imagen-personaje" style="object-fit: cover;">
+            <p class="historia-personaje" style="margin-top: 5px; font-size: 12px; color: #88c0d0; font-weight: bold; text-align: center;">${nombresPersonajes}</p>
+        `;
+        grid.appendChild(div);
+    });
+}
+function abrirModalVerHistoria(historia) {
+    document.getElementById('titulo-ver-historia').innerText = historia.titulo;
+    document.getElementById('texto-ver-historia').innerText = historia.texto;
+    document.getElementById('imagen-ver-historia').src = historia.imagen;
+    
+    const gridPersonajes = document.getElementById('personajes-ver-historia');
+    gridPersonajes.innerHTML = '';
+    if(historia.personajesIds) {
+        historia.personajesIds.forEach(id => {
+            const p = personajes.find(x => x.id === id);
+            if(p) {
+                const div = document.createElement('div');
+                div.className = 'tarjeta-personaje tarjeta-mini';
+                div.innerHTML = `<h3 class="titulo-carta">${p.nombre}</h3><img src="${p.imagen}" class="imagen-personaje">`;
+                gridPersonajes.appendChild(div);
+            }
+        });
+    }
+    document.getElementById('modal-ver-historia').style.display = 'block';
+}
+
+function cerrarModalVerHistoria() {
+    document.getElementById('modal-ver-historia').style.display = 'none';
+}
 function mostrarTarjetas(lista) {
     const contenedorGrid = document.getElementById("grid-tarjetas-galeria");
     if (!contenedorGrid) return;
@@ -376,12 +528,17 @@ function generarBarraAtributo(atributo, valor) {
 function abrirModal(personaje) {
     const detalle = document.getElementById("detalle-personaje");
     const stats = personaje.atributos || {};
-    const evolucionDisponible = ((personaje.puntosPositivos || 0) + (personaje.puntosNegativos || 0)) >= 25;
-    const tarjetaDisponible = (personaje.duelos || 0) >= 15;
+    const duelosLibrados = parseInt(personaje.duelos) || 0;
+    const puntosPos = parseInt(personaje.puntosPositivos) || 0;
+    const puntosNeg = parseInt(personaje.puntosNegativos) || 0;
+    
+    const evolucionDisponible = (puntosPos + puntosNeg) >= 25;
+    const tarjetaDisponible = duelosLibrados >= 15;
+    
     const accionesDisponibles = `
-        <div class="acciones-personaje">
-            ${tarjetaDisponible ? `<button id="btn-tarjeta-disponible" class="boton-alerta-personaje boton-alerta-tarjeta" onclick="abrirModalTarjetaHistoria('${personaje.id}')">✨ TARJETA DISPONIBLE</button>` : ''}
-            ${evolucionDisponible ? `<button id="btn-evolucion-pendiente" class="boton-alerta-personaje boton-alerta-evolucion" onclick="abrirModalEvolucion('${personaje.id}')">⚡ EVOLUCIÓN DISPONIBLE</button>` : ''}
+        <div class="acciones-personaje" style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px; width: 100%;">
+            <button id="btn-tarjeta-disponible" class="boton-alerta-personaje boton-alerta-tarjeta" onclick="abrirModalTarjetaHistoria('${personaje.id}')" style="display: ${tarjetaDisponible ? 'block' : 'none'}; width: 100%; padding: 8px; background: #88c0d0; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">✨ TARJETA DISPONIBLE</button>
+            <button id="btn-evolucion-pendiente" class="boton-alerta-personaje boton-alerta-evolucion" onclick="abrirModalEvolucion('${personaje.id}')" style="display: ${evolucionDisponible ? 'block' : 'none'}; width: 100%; padding: 8px; background: #d4af37; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">⚡ EVOLUCIÓN DISPONIBLE</button>
         </div>
     `;
     
@@ -421,11 +578,23 @@ function abrirModal(personaje) {
                     ${["velocidad", "inteligencia", "fuerza", "defensa", "magia"].map(a => generarBarraAtributo(a, stats[a] ?? 0)).join("")}
                 </div>
                 ${htmlTarjeta}
-               <div class="resumen-personaje">
-                    <p><span class="puntos-positivos">+ Puntos Positivos:</span> ${personaje.puntosPositivos ?? 0}</p>
-                    <p><span class="puntos-negativos">- Puntos Negativos:</span> ${personaje.puntosNegativos ?? 0}</p>
-                    <p><span class="duelos-librados">Duelos Librados:</span> ${personaje.duelos ?? 0}</p>
-                </div>
+               <div class="resumen-personaje-estilizado">
+                            <div class="estadistica-caja positiva">
+                                <span class="estadistica-icono">🟢</span>
+                                <span class="estadistica-valor">${personaje.puntosPositivos ?? 0}</span>
+                                <span class="estadistica-etiqueta">Puntos Positivos</span>
+                            </div>
+                            <div class="estadistica-caja negativa">
+                                <span class="estadistica-icono">🔴</span>
+                                <span class="estadistica-valor">${personaje.puntosNegativos ?? 0}</span>
+                                <span class="estadistica-etiqueta">Puntos Negativos</span>
+                            </div>
+                            <div class="estadistica-caja duelos">
+                                <span class="estadistica-icono">⚔️</span>
+                                <span class="estadistica-valor">${personaje.duelos ?? 0}</span>
+                                <span class="estadistica-etiqueta">Duelos Librados</span>
+                            </div>
+                        </div>
             </div>
         </div>
     `;
@@ -469,64 +638,47 @@ async function cargarMazos() {
 function obtenerPersonajesDelMazo(mazoIds) {
     return mazoIds.map(id => personajes.find(p => p.id === id)).filter(Boolean);
 }
-
 function crearVistaTarjetaMazo(mazoIds, index, opciones = {}) {
     const { permitirAcciones = true, onSeleccionar = null } = opciones;
     const personajesMazo = obtenerPersonajesDelMazo(mazoIds);
-    const divMazo = document.createElement("article");
-    divMazo.className = "item-mazo tarjeta-mazo";
+    const divMazo = document.createElement("div");
+    
+    divMazo.className = "tarjeta-personaje item-mazo"; 
+    divMazo.style.position = "relative";
+    divMazo.style.cursor = "pointer";
+    divMazo.style.paddingBottom = permitirAcciones ? "40px" : "30px";
     divMazo.tabIndex = 0;
 
-    const vistaPrevia = personajesMazo.slice(0, 6).map(personaje => `
-        <div class="miniatura-mazo">
-            <img src="${personaje.imagen}" alt="${personaje.nombre}">
-            <span>${personaje.nombre}</span>
-        </div>
-    `).join("");
-
-    const faltantes = Math.max(0, mazoIds.length - personajesMazo.length);
-    const textoFaltantes = faltantes > 0 ? `<p class="mazo-aviso">${faltantes} carta(s) no encontradas en personajes.json.</p>` : "";
+    const personajePortada = personajesMazo[0];
+    const imagenPortada = personajePortada ? personajePortada.imagen : '';
 
     divMazo.innerHTML = `
-        <div class="mazo-cabecera">
-            <div>
-                <h3>Mazo ${index + 1}</h3>
-                <p>${mazoIds.length} carta(s) seleccionadas</p>
-            </div>
-            <span class="mazo-contador">${mazoIds.length}/${MAX_CARTAS}</span>
-        </div>
-        <div class="mazo-vista-previa">${vistaPrevia || '<p class="mazo-vacio">Sin cartas visibles</p>'}</div>
-        ${textoFaltantes}
-        <div class="mazo-detalle" hidden>
-            <h4>Cartas del mazo</h4>
-            <div class="mazo-cartas-lista"></div>
+        <h3 class="titulo-carta">Mazo ${index + 1}</h3>
+        ${imagenPortada ? `<img src="${imagenPortada}" alt="Portada Mazo" class="imagen-personaje">` : '<div class="imagen-personaje" style="display:flex; align-items:center; justify-content:center; background:#111; color:#88c0d0;">Vacío</div>'}
+        <div class="contenedor-tipos">
+            <span class="etiqueta-tipo" style="background: #3d4554; border-color: #5a667a;">${mazoIds.length}/${MAX_CARTAS} Cartas</span>
         </div>
         ${permitirAcciones ? `
-            <div class="mazo-acciones">
-                <button type="button" class="btn-editar-mazo">Editar</button>
-                <button type="button" class="btn-eliminar-mazo">Eliminar</button>
+            <div style="display: flex; justify-content: space-between; padding: 5px; gap: 5px; position: absolute; bottom: 0; left: 0; width: 100%; box-sizing: border-box; background: rgba(18, 18, 23, 0.95); border-top: 1px solid #4a4a5a;">
+                <button type="button" class="btn-editar-mazo" style="flex: 1; padding: 5px; font-size: 12px; z-index: 2;">Editar</button>
+                <button type="button" class="btn-eliminar-mazo" style="flex: 1; padding: 5px; font-size: 12px; background: #5a2a2a; border-color: #ff4444; z-index: 2;">Eliminar</button>
             </div>
-        ` : '<p class="ayuda-mazo-batalla">Haz clic de nuevo para usar este mazo en batalla.</p>'}
+        ` : '<div style="position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(18, 18, 23, 0.95); border-top: 1px solid #4a4a5a; padding: 6px 0;"><p style="text-align: center; font-size: 13px; color: #88ff88; margin: 0; font-weight: bold;">¡Click para luchar!</p></div>'}
     `;
 
-    const detalle = divMazo.querySelector(".mazo-detalle");
-    const listaDetalle = divMazo.querySelector(".mazo-cartas-lista");
-    listaDetalle.append(...personajesMazo.map(crearTarjetaMini));
-    detalle.addEventListener("click", event => event.stopPropagation());
+    divMazo.addEventListener("click", (event) => {
+        if (event.target.classList.contains("btn-editar-mazo") || event.target.classList.contains("btn-eliminar-mazo")) {
+            return;
+        }
 
-    const alternarDetalle = () => {
-        const estaAbierto = !detalle.hidden;
-        document.querySelectorAll(".mazo-detalle").forEach(panel => panel.hidden = true);
-        detalle.hidden = estaAbierto;
-    };
-
-    divMazo.addEventListener("click", () => {
-        if (!permitirAcciones && !detalle.hidden && typeof onSeleccionar === "function") {
+        if (!permitirAcciones && typeof onSeleccionar === "function") {
             onSeleccionar(mazoIds);
             return;
         }
-        alternarDetalle();
+        
+        abrirModalVerMazo(index, personajesMazo);
     });
+
     divMazo.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
@@ -546,6 +698,42 @@ function crearVistaTarjetaMazo(mazoIds, index, opciones = {}) {
     }
 
     return divMazo;
+}
+
+function abrirModalVerMazo(index, personajesMazo) {
+    let modal = document.getElementById("modal-ver-mazo");
+    if (!modal) {
+        modal = document.createElement("div");
+        modal.id = "modal-ver-mazo";
+        modal.className = "modal";
+        modal.innerHTML = `
+            <div class="modal-contenido-mazo" style="max-width: 90%; max-height: 90vh; overflow-y: auto;">
+                <span class="cerrar-modal-ver-mazo cerrar-modal-mazo" style="position: absolute; right: 15px; top: 15px; font-size: 24px; cursor: pointer; color: #fff;">&times;</span>
+                <h2 id="titulo-ver-mazo" style="margin-bottom: 20px;">Mazo</h2>
+                <div id="grid-ver-mazo" class="galeria-grid"></div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        modal.querySelector(".cerrar-modal-ver-mazo").addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) modal.style.display = "none";
+        });
+    }
+
+    document.getElementById("titulo-ver-mazo").innerText = `Mazo ${index + 1} (${personajesMazo.length} cartas)`;
+    const grid = document.getElementById("grid-ver-mazo");
+    grid.innerHTML = "";
+    
+    personajesMazo.forEach(personaje => {
+        const tarjeta = crearTarjetaMini(personaje);
+        tarjeta.onclick = () => abrirModal(personaje);
+        grid.appendChild(tarjeta);
+    });
+
+    modal.style.display = "block";
 }
 
 function mostrarMazosGuardados() {
@@ -1178,6 +1366,8 @@ function asignarRivalEstrategico() {
     memoriaIARival = resultado.memory;
     ultimoDebugIARival = resultado.debug;
     asignacionesRival = resultado.assignments;
+
+    asignarRivalAleatorioCompatibilidad();
 
     if (AI_DEBUG) {
         console.debug("Bestiario AI decision", ultimoDebugIARival);
@@ -2339,6 +2529,126 @@ function guardarTarjetaVinculo() {
     };
 
     if (typeof tarjetasGuardadas === 'undefined') { window.tarjetasGuardadas = []; }
+    function mostrarHistorias(lista) {
+    const contenedorGrid = document.getElementById("grid-historias");
+    if (!contenedorGrid) return;
+    contenedorGrid.innerHTML = "";
+
+    lista.forEach(historia => {
+        const div = document.createElement("div");
+        div.className = "tarjeta-personaje tarjeta-mini";
+        div.onclick = () => abrirModalHistoria(historia);
+
+        const textoPersonajes = Array.isArray(historia.personajes) ? historia.personajes.join(", ") : (historia.personajes || "");
+
+        div.innerHTML = `
+            <h3 class="titulo-carta">${historia.titulo || historia.nombre}</h3>
+            <img src="${historia.imagen || ''}" alt="${historia.titulo || historia.nombre}" class="imagen-personaje">
+            ${generarEtiquetasTipo(textoPersonajes)}
+        `;
+        contenedorGrid.appendChild(div);
+    });
+}
+
+function abrirModalHistoria(historia) {
+    const modal = document.getElementById("modal-detalle-historia");
+    const detalle = document.getElementById("contenido-detalle-historia");
+    if (!modal || !detalle) return;
+
+    const textoPersonajes = Array.isArray(historia.personajes) ? historia.personajes.join(", ") : (historia.personajes || "");
+
+    detalle.innerHTML = `
+        <div class="detalle-modal">
+            <img src="${historia.imagen || ''}" alt="${historia.titulo || historia.nombre}" class="detalle-imagen">
+            <div class="detalle-info">
+                <h2>${historia.titulo || historia.nombre}</h2>
+                ${generarEtiquetasTipo(textoPersonajes)}
+                <div class="bloque-descripcion-tarjeta" style="margin-top: 15px;">
+                    <p style="color: #eeeeee; font-size: 14px; line-height: 1.6; white-space: pre-line;">${historia.historia || historia.descripcion || 'Sin contenido registrado.'}</p>
+                </div>
+            </div>
+        </div>
+    `;
+
+    modal.style.display = "block";
+}
+
+function cerrarModalHistoriaDetalle() {
+    const modal = document.getElementById("modal-detalle-historia");
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+function abrirFormularioHistoria() {
+    const select = document.getElementById("personajes-nueva-historia");
+    if (select && personajes.length > 0) {
+        select.innerHTML = "";
+        personajes.forEach(p => {
+            const opt = document.createElement("option");
+            opt.value = p.nombre;
+            opt.textContent = p.nombre;
+            select.appendChild(opt);
+        });
+    }
+
+    const inputTitulo = document.getElementById("titulo-nueva-historia");
+    const inputImagen = document.getElementById("imagen-nueva-historia");
+    const inputTexto = document.getElementById("texto-nueva-historia");
+
+    if (inputTitulo) inputTitulo.value = "";
+    if (inputImagen) inputImagen.value = "";
+    if (inputTexto) inputTexto.value = "";
+
+    const modalForm = document.getElementById("modal-formulario-historia");
+    if (modalForm) modalForm.style.display = "block";
+}
+
+function cerrarFormularioHistoria() {
+    const modalForm = document.getElementById("modal-formulario-historia");
+    if (modalForm) modalForm.style.display = "none";
+}
+
+function guardarNuevaHistoria() {
+    const titulo = document.getElementById("titulo-nueva-historia")?.value || "";
+    const imagen = document.getElementById("imagen-nueva-historia")?.value || "";
+    const texto = document.getElementById("texto-nueva-historia")?.value || "";
+    const select = document.getElementById("personajes-nueva-historia");
+
+    if (!titulo.trim()) {
+        alert("El título de la historia es obligatorio.");
+        return;
+    }
+
+    let personajesSeleccionados = [];
+    if (select) {
+        personajesSeleccionados = Array.from(select.selectedOptions).map(opt => opt.value);
+    }
+
+    const nuevaHistoria = {
+        idHistoria: "H_" + Date.now(),
+        titulo: titulo,
+        nombre: titulo,
+        imagen: imagen,
+        historia: texto,
+        personajes: personajesSeleccionados
+    };
+
+    historiasGuardadas.push(nuevaHistoria);
+
+    const blob = new Blob([JSON.stringify(historiasGuardadas, null, 4)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "historias.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    cerrarFormularioHistoria();
+    mostrarHistorias(historiasGuardadas);
+}
     tarjetasGuardadas.push(tarjeta1);
 
     if (["Aliado", "Rival", "Pareja"].includes(tipo)) {

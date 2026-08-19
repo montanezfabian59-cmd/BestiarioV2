@@ -12,9 +12,9 @@
             "defensa": 35
         },
         "imagen": "personajes/xenia.jpg",
-        "puntosPositivos": 50,
+        "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "zhautung",
@@ -31,7 +31,7 @@
         "imagen": "personajes/zhautung.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "liren-ken",
@@ -46,9 +46,9 @@
             "defensa": 60
         },
         "imagen": "personajes/lirenken.jpg",
-        "puntosPositivos": 3,
-        "puntosNegativos": 2,
-        "duelos": 25
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 0
     },
     {
         "id": "thalassa",
@@ -65,7 +65,7 @@
         "imagen": "personajes/thalassa.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "ario",
@@ -80,9 +80,9 @@
             "defensa": 60
         },
         "imagen": "personajes/ario.jpg",
-        "puntosPositivos": 4,
-        "puntosNegativos": 1,
-        "duelos": 25
+        "puntosPositivos": 0,
+        "puntosNegativos": 0,
+        "duelos": 0
     },
     {
         "id": "laarmaduradelreymorvath",
@@ -99,7 +99,7 @@
         "imagen": "personajes/laarmaduradelreymorvath.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "cassian",
@@ -116,7 +116,7 @@
         "imagen": "personajes/cassian.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "reinavaleria",
@@ -133,7 +133,7 @@
         "imagen": "personajes/reinavaleria.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "krakor",
@@ -150,7 +150,7 @@
         "imagen": "personajes/krakor.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "reinahali",
@@ -167,7 +167,7 @@
         "imagen": "personajes/reinahali.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "yaren",
@@ -184,7 +184,7 @@
         "imagen": "personajes/yaren.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "vira",
@@ -201,7 +201,7 @@
         "imagen": "personajes/vira.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "reyzorak",
@@ -218,7 +218,7 @@
         "imagen": "personajes/reyzorak.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "reyrhyon",
@@ -235,7 +235,7 @@
         "imagen": "personajes/reyrhyon.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "reinaxaira",
@@ -252,7 +252,7 @@
         "imagen": "personajes/reinaxaira.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "nautilos",
@@ -269,7 +269,7 @@
         "imagen": "personajes/nautilos.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "skjar",
@@ -286,7 +286,7 @@
         "imagen": "personajes/skjar.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "maila",
@@ -303,7 +303,7 @@
         "imagen": "personajes/maila.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "vaelín",
@@ -320,7 +320,7 @@
         "imagen": "personajes/vaelin.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "mantisdehueso",
@@ -337,7 +337,7 @@
         "imagen": "personajes/mantisdehueso.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "valakor",
@@ -354,7 +354,7 @@
         "imagen": "personajes/valakor.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "hetion",
@@ -371,7 +371,7 @@
         "imagen": "personajes/hetion.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "lyvia",
@@ -388,7 +388,7 @@
         "imagen": "personajes/lyvia.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "silas",
@@ -405,7 +405,7 @@
         "imagen": "personajes/silas.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "osiriana",
@@ -422,7 +422,7 @@
         "imagen": "personajes/osiriana.jpg",
         "puntosPositivos": 0,
         "puntosNegativos": 0,
-        "duelos": 25
+        "duelos": 0
     },
     {
         "id": "ohros",

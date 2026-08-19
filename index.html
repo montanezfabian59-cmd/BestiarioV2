@@ -171,6 +171,9 @@
             <button data-ventana="batalla">
                 Batalla
             </button>
+            <button data-ventana="historia">
+                Historia
+            </button>
         </div>
     </div>
     <div class="contenidos">
@@ -189,20 +192,20 @@
        <section id="mazo">
             <h2>Mazo</h2>
             <button id="btn-nuevo-mazo">Nuevo mazo</button>
-            <div id="lista-mazos">
+            <div id="lista-mazos" class="galeria-grid">
             </div>
         </section>
         <section id="batalla">
             <h2>Batalla</h2>
             <div id="pantalla-seleccion-mazo">
                 <h3>Selecciona un Mazo para la Batalla</h3>
-                <div id="lista-mazos-batalla" class="lista-mazos-grid"></div>
+                <div id="lista-mazos-batalla" class="galeria-grid"></div>
             </div>
             <div id="pantalla-seleccion-personajes" style="display: none;">
                 <h3>Selecciona 3 Personajes Principales (<span id="contador-principales">0</span>/3)</h3>
                 <div class="acciones-batalla">
-                    <button id="btn-aleatorio-batalla">Elegir Aleatoriamente</button>
                     <button id="btn-confirmar-principales" disabled>Confirmar Selección</button>
+                    <button id="btn-aleatorio-batalla">Elegir Aleatoriamente</button>
                     <button id="btn-volver-mazos">Cambiar Mazo</button>
                 </div>
                 <div id="grid-personajes-batalla" class="galeria-grid"></div>
@@ -212,6 +215,11 @@
                 <div id="contenedor-principales-seleccionados" class="galeria-grid"></div>
             </div>
         </section>
+        <section id="historia" style="display: none;">
+            <h2>Historia</h2>
+            <button id="btn-nueva-historia" onclick="abrirModalNuevaHistoria()" style="margin-bottom: 15px;">+ Nuevo</button>
+            <div id="grid-historia" class="galeria-grid"></div>
+        </section>
     </div>
     <div id="modal-personaje" class="modal">
         <div class="modal-contenido">
@@ -219,7 +227,41 @@
             <div id="detalle-personaje"></div>
         </div>
     </div>
+<div id="modal-nueva-historia" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarModalNuevaHistoria()">&times;</span>
+            <h2>NUEVA HISTORIA</h2>
+            <div class="formulario-tarjeta">
+                <label>Titulo</label>
+                <input type="text" id="titulo-nueva-historia" placeholder="Escribe el título">
+                
+                <label>Historia</label>
+                <textarea id="texto-nueva-historia" placeholder="Escribe la historia aquí"></textarea>
+                
+                <button type="button" onclick="abrirSelectorPersonajesHistoria()" style="width: fit-content; margin-top: 10px;">Personaje</button>
+                <div id="contenedor-personajes-ligados" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;"></div>
+                
+                <div style="display: flex; justify-content: flex-end; margin-top: 15px;">
+                    <button type="button" onclick="guardarNuevaHistoria()">GUardar Historia</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div id="modal-ver-historia" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarModalVerHistoria()">&times;</span>
+            <h2 id="titulo-ver-historia"></h2>
+            <div style="text-align: center; margin-bottom: 15px;">
+                <img id="imagen-ver-historia" src="" alt="Imagen Historia" style="max-width: 100%; max-height: 250px; border-radius: 6px; object-fit: cover;">
+            </div>
+            <div style="max-width: 85%; margin: 0 auto; padding: 20px; background: rgba(11, 11, 15, 0.6); border: 1px solid #3d4554; border-radius: 8px; margin-bottom: 20px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);">
+                <p id="texto-ver-historia" style="white-space: pre-wrap; line-height: 1.6; margin: 0; text-align: justify; color: #e0e0e0;"></p>
+            </div>
+            <h3>Personajes Involucrados</h3>
+            <div id="personajes-ver-historia" class="galeria-grid" style="margin-top: 10px;"></div>
+        </div>
+    </div>
     <div id="modal-detalle-tarjeta" class="modal">
         <div class="modal-contenido modal-perfil-tarjeta">
             <span class="cerrar-modal" onclick="cerrarModalTarjetaDetalle()">&times;</span>
@@ -245,6 +287,13 @@
     </div>
     <script src="ai-core.js"></script>
     <script src="script.js"></script>
+    <div id="modal-selector-personajes-historia" class="modal">
+        <div class="modal-contenido form-scroll">
+            <span class="cerrar-modal" onclick="cerrarSelectorPersonajesHistoria()">&times;</span>
+            <h2>SELECCIONAR PERSONAJE</h2>
+            <div id="grid-selector-personajes-historia" class="galeria-grid" style="margin-top: 15px;"></div>
+        </div>
+    </div>
     <div id="modal-evolucion" class="modal">
         <div class="modal-contenido">
             <span class="cerrar-modal" onclick="cerrarModalEvolucion()">&times;</span>
@@ -713,4 +762,5 @@
             </div>
         </div>
     </div>
+    
 </html>

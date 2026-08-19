@@ -291,8 +291,9 @@ body {
 }
 #lista-mazos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
 }
 .item-mazo {
     background-color: #1a1a1a;
@@ -464,9 +465,10 @@ body {
 }
 .lista-mazos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
     margin-top: 15px;
+    width: 100%;
 }
 
 .tarjeta-mazo-batalla {
